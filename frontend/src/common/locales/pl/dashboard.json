@@ -1,0 +1,42 @@
+{
+  "sensors-placed": "Widoczne na mapie",
+  "sensors-not-placed": "Nieumieszczone na mapie",
+  "sensors-refresh-error": "Odświeżenie stanu czujników nie powiodło się.",
+
+  "map-modal-title": "Potrzebny odstęp!",
+  "map-modal-content": "Zostaw większy odstęp między sensorami.",
+  "map-modal-close": "Zamknij",
+
+  "sensor-remove-modal": "Usunięcie czujnika z mapy",
+  "sensor-remove-modal-content": "Czy na pewno chcesz usunąć czujnik z mapy?",
+  "sensor-remove-cancel": "Anuluj",
+  "sensor-remove-confirm": "Potwierdź",
+
+  "light-hue": "Odcień",
+  "light-saturation": "Nasycenie",
+  "light-value": "Natężenie",
+  "RFID-last-action": "Ostatnia akcja:",
+  "smoke-detected": "WYKRYTO",
+  "smoke-not-detected": "BRAK",
+  "window-open": "OTWARTE",
+  "window-closed": "ZAMKNIĘTE",
+  "blinds-position": "Pozycja",
+
+  "temperature-sensor-name": "Czujnik temperatury",
+  "temperature-sensor-desc": "Temperatura",
+  "window-sensor-name": "Czujnik okna",
+  "window-sensor-desc": "Okno",
+  "window-blind-name": "Rolety",
+  "window-blind-desc": "Rolety",
+  "RFID-sensor-name": "Czujnik RFID",
+  "RFID-sensor-desc": "RFID",
+  "smoke-sensor-name": "Czujnik dymu",
+  "smoke-sensor-desc": "Czujnik dymu",
+  "RGB-light-name": "Światło RGB",
+  "RGB-light-desc": "Światło",
+
+  "sensor-add-failed": "Czujnik {{id}} nie został dodany.",
+  "sensor-remove-failed": "Błąd przy usuwaniu czujnika {{id}}",
+
+  "sensor-detail-confirm": "Ustaw"
+}

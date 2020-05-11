@@ -1,0 +1,17 @@
+{
+  "name": "Training app",
+  "description": "To simplify the way you note your gym progress.",
+  "repository": "https://github.com/jwieckowski/training-app",
+  "success_url": "/",
+  "image": "heroku/nodejs",
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-nodejs"
+    }
+  ],
+  "env": {
+    "HEROKU_APP_NAME": {
+      "required": true
+    }
+  }
+}

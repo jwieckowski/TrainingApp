@@ -1,0 +1,35 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Training App API",
+    "description": "Backend service for training app.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "/"
+    }
+  ],
+  "tags": [],
+  "components": {
+    "schemas": {
+    },
+    "responses": {
+    }
+  },
+  "paths": {
+    "/.well-known/documentation": {
+      "get": {
+        "summary": "This documentation",
+        "tags": [
+          "Documentation"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  }
+}
