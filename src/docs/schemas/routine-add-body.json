@@ -1,0 +1,23 @@
+{
+  "title": "Routine add body request",
+  "$id": "routine-add-body.json",
+  "type": "object",
+  "properties": {
+    "_id": {
+      "$ref": "id.json"
+    },
+    "name": {
+      "type": "string",
+      "example": "FBW"
+    },
+    "label": {
+      "type": "string",
+      "example": "wtorek"
+    }
+  },
+  "required": [
+    "_id",
+    "name",
+    "label"
+  ]
+}

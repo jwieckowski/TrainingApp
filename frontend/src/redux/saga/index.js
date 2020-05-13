@@ -1,9 +1,9 @@
 import { all } from 'redux-saga/effects'
-import { watchDB } from '@data/sagas/db'
+import { watchRoutines } from '../../data/sagas/routines'
 
 // Here should be added future sagas watchers
 export default function * rootSaga () {
   yield all([
-    watchDB()
+    watchRoutines()
   ])
 }

@@ -1,12 +1,12 @@
 const fp = require('fastify-plugin')
-const notifications = require('./dbNotificationsActions')
+const routines = require('./routinesActions')
 
 module.exports = fp(function (fastify, options, next) {
   fastify.decorate('db', {
-    getNotifications: notifications.getNotifications,
-    postNotification: notifications.postNotification,
-    updateNotification: notifications.updateNotification,
-    deleteNotifications: notifications.deleteNotifications
+    getRoutines: routines.getRoutines,
+    addRoutine: routines.addRoutine,
+    removeRoutine: routines.removeRoutine,
+    dropRoutines: routines.dropRoutines
   })
 
   next()

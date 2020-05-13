@@ -8,22 +8,22 @@ const useStyles = makeStyles(theme => ({
     height: '100vh'
   },
   content: {
-    height: 'calc(100vh - 64px)', // check navigation height in frontend\src\components\Navigation\Navigation.jsx if needed
+    height: 'calc(100vh - 2*64px)', // check navigation height in frontend\src\components\Navigation\Navigation.jsx if needed
     boxSizing: 'border-box',
     backgroundColor: theme.palette.background.default
   }
 }))
 
-// eslint-disable-next-line react/prop-types
 const Layout = ({ children }) => {
   const classes = useStyles()
   return (
     <Grid container maxwidth='xs' className={classes.root} data-testid='dashboard-id'>
       <CustomSnackbarProvider>
-        <Navigation />
+        <Navigation position='top' />
         <Grid container maxwidth='xs' className={classes.content}>
           {children}
         </Grid>
+        <Navigation position='bottom' />
       </CustomSnackbarProvider>
     </Grid>
   )

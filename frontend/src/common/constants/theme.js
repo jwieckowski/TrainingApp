@@ -8,6 +8,9 @@ const theme = createMuiTheme({
     secondary: {
       main: '#ffc400'
     },
+    text: {
+      main: '#fafafa'
+    },
     contrastThreshold: 3,
     background: {
       default: '#fafafa',

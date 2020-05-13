@@ -1,0 +1,9 @@
+{
+  "$id": "routines-get-200.json",
+  "title": "Routines",
+  "description": "Users routines",
+  "type": "array",
+  "items": {
+    "$ref": "routine-add-body.json"
+  }
+}

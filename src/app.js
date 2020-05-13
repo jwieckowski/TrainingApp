@@ -32,8 +32,8 @@ module.exports = function ({ port }) {
   app.register(require('./plugins/db'))
   app.register(require('./plugins/db/actions'))
 
-  app.register(require('./routes/dashboard'), {
-    prefix: '/api/v1/dashboard'
+  app.register(require('./routes/routines'), {
+    prefix: '/api/v1/routines'
   })
 
   app.register(require('./routes/catch-all/catch-all-api-404'), {

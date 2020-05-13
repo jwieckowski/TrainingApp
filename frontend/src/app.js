@@ -5,13 +5,21 @@ import './i18n'
 import { ThemeProvider } from '@material-ui/styles'
 import theme from './common/constants/theme'
 
+import Dashboard from './components/Content/Dashboard'
+import Statistics from './components/Content/Statistics'
+import History from './components/Content/History'
+import Body from './components/Content/Body'
+import More from './components/Content/More'
+
 const App = () => (
   <ThemeProvider theme={theme}>
     <Layout>
       <Switch>
-        <Route path='/authors' component={'AuthorsList'} />
-        <Route path='/hvac' render={() => 'HVAC'} />
-        <Route path='/' exact component={'Dashboard'} />
+        <Route path='/more' component={More} />
+        <Route path='/body' component={Body} />
+        <Route path='/history' component={History} />
+        <Route path='/statistics' component={Statistics} />
+        <Route path='/' exact component={Dashboard} />
         <Redirect to='/' />
       </Switch>
     </Layout>

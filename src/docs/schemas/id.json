@@ -1,0 +1,8 @@
+{
+    "$id": "id.json",
+    "title": "Number ID",
+    "type": "number",
+    "minimum": 1,
+    "description": "Number ID",
+    "example": 12
+  }
