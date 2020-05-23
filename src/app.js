@@ -36,6 +36,10 @@ module.exports = function ({ port }) {
     prefix: '/api/v1/routines'
   })
 
+  app.register(require('./routes/body'), {
+    prefix: '/api/v1/body'
+  })
+
   app.register(require('./routes/catch-all/catch-all-api-404'), {
     prefix: '/api'
   })

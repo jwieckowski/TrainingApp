@@ -1,179 +1,59 @@
 {
-  "dashboard-get-200": {
+  "routines-get-200": {
     "summary": "positive",
     "value": {
-      "temperatureSensors": [
+      "routines": [
         {
-          "id": 1,
-          "type": "TEMPERATURE_SENSOR",
-          "value": 12.2,
-          "mapPosition": {
-            "x": 5,
-            "y": 25
-          }
+          "_id": 1,
+          "name": "Power 1",
+          "label": "Monday"
         },
         {
-          "id": 2,
-          "type": "TEMPERATURE_SENSOR",
-          "value": 19
+          "_id": 2,
+          "name": "Split",
+          "label": "Sunday"
         },
         {
-          "id": 3,
-          "type": "TEMPERATURE_SENSOR",
-          "value": 20
-        }
-      ],
-      "windowSensors": [
-        {
-          "id": 1,
-          "type": "windowSensor",
-          "isOpen": true
-        },
-        {
-          "id": 2,
-          "type": "windowSensor",
-          "isOpen": true,
-          "mapPosition": {
-            "x": 5,
-            "y": 25
-          }
-        },
-        {
-          "id": 3,
-          "type": "windowSensor",
-          "isOpen": false
-        }
-      ],
-      "windowBlinds": [
-        {
-          "id": 1,
-          "type": "windowBlind",
-          "position": 50
-        }
-      ],
-      "RFIDSensors": [
-        {
-          "id": 1,
-          "type": "RFIDSensor",
-          "lastTag": {
-            "id": 1234567890,
-            "type": "RFIDTag",
-            "timestamps": 0
-          }
-        }
-      ],
-      "smokeSensors": [
-        {
-          "id": 1,
-          "type": "smokeSensor",
-          "isSmokeDetected": true
-        }
-      ],
-      "HVACStatus": {
-        "type": "HVACStatus",
-        "heating": true,
-        "cooling": false
-      },
-      "HVACRooms": [
-        {
-          "id": 6,
-          "type": "HVACRoom",
-          "heating-temperature": 100,
-          "cooling-temperature": 100,
-          "hysteresis": 15,
-          "temperatureSensorId": 1,
-          "windowSensorIds": [
-            2
-          ]
-        },
-        {
-          "id": 7,
-          "type": "HVACRoom"
-        }
-      ],
-      "lights": [
-        {
-          "id": 7,
-          "type": "RGBLight",
-          "hue": 100,
-          "saturation": 50,
-          "value": 50
-        },
-        {
-          "id": 8,
-          "type": "RGBLight"
+          "_id": 3,
+          "name": "Balance",
+          "label": "Friday"
         }
       ]
     }
   },
-  "api-v1-map-{sensorID}-add": {
-    "summary": "",
-    "value": {
-      "_id": "123",
-      "mapPosition": {
-        "x": 13,
-        "y": 15
-      }
-    }
-  },
-  "notifications-get-200.json": {
+  "body-data-get-200": {
     "summary": "positive",
     "value": {
-      "notifications": [
+      "bodyData": [
         {
-          "id": 5,
-          "timestamp": 1517902808,
-          "type": "alert",
-          "sensorId": 55,
-          "isChecked": true
+          "_id": 4,
+          "weight": 88,
+          "bmi": 22,
+          "fat": 10,
+          "muscle": 55
         },
         {
-          "id": 2,
-          "timestamp": 1598162038,
-          "type": "doorbell",
-          "sensorId": 22,
-          "isChecked": false
+          "_id": 3,
+          "weight": 89,
+          "bmi": 23,
+          "fat": 11,
+          "muscle": 56
         },
         {
-          "id": 4,
-          "timestamp": 153989218,
-          "type": "windowSensor",
-          "sensorId": 44,
-          "isChecked": true
+          "_id": 2,
+          "weight": 90,
+          "bmi": 24,
+          "fat": 12,
+          "muscle": 56
         },
         {
-          "id": 3,
-          "timestamp": 1578075628,
-          "type": "hvac",
-          "sensorId": 33,
-          "isChecked": false
-        },
-        {
-          "id": 1,
-          "timestamp": 1558248448,
-          "type": "alert",
-          "sensorId": 11,
-          "isChecked": false
+          "_id": 1,
+          "weight": 85,
+          "bmi": 24,
+          "fat": 14,
+          "muscle": 53
         }
       ]
-    }
-  },
-  "light-put-200": {
-    "summary": "positive",
-    "value": {
-      "id": 7,
-      "type": "RGBLight",
-      "hue": 100,
-      "saturation": 50,
-      "value": 50
-    }
-  },
-  "blinds-put-200": {
-    "summary": "positive",
-    "value": {
-      "id": 7,
-      "type": "windowBlind",
-      "position": 50
     }
   }
 }

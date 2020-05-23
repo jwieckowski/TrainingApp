@@ -1,0 +1,37 @@
+{
+    "title": "Body data add body request",
+    "$id": "body-data-add-body.json",
+    "type": "object",
+    "properties": {
+      "_id": {
+        "$ref": "id.json"
+      },
+      "weight": {
+        "type": "number",
+        "min": 40,
+        "max": 250
+      },
+      "bmi": {
+        "type": "number",
+        "min": 10,
+        "max": 100
+      },
+      "fat": {
+        "type": "number",
+        "min": 0,
+        "max": 100
+      },
+      "muscle": {
+        "type": "number",
+        "min": 0,
+        "max": 100
+      }
+    },
+    "required": [
+      "_id",
+      "weight",
+      "bmi",
+      "fat",
+      "muscle"
+    ]
+  }

@@ -13,8 +13,37 @@
   "tags": [],
   "components": {
     "schemas": {
+      "RoutinesGet200": {
+        "$ref": "schemas/routines-get-200.json"
+      },
+      "BodyDataGet200": {
+        "$ref": "schemas/body-data-get-200.json"
+      },
+      "GenericError": {
+        "$ref": "schemas/generic-error.json"
+      }
     },
     "responses": {
+      "400": {
+        "description": "Request malformed",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "schemas/generic-error.json"
+            }
+          }
+        }
+      },
+      "404": {
+        "description": "Entity not found",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "schemas/generic-error.json"
+            }
+          }
+        }
+      }
     }
   },
   "paths": {
@@ -27,6 +56,48 @@
         "responses": {
           "200": {
             "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/routines": {
+      "get": {
+        "summary": "Endpoint with all defined user routines",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schemas/routines-get-200.json"
+                },
+                "examples": {
+                  "positive": {
+                    "$ref": "examples/positive.json#/routines-get-200"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/body": {
+      "get": {
+        "summary": "Endpoint with all user body data measures",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schemas/body-data-get-200.json"
+                },
+                "examples": {
+                  "positive": {
+                    "$ref": "examples/positive.json#/body-data-get-200"
+                  }
+                }
+              }
+            }
           }
         }
       }

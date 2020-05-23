@@ -74,7 +74,7 @@ const removeRoutineFail = (state, action) => {
   }
 }
 
-export default function dbInteraction (state = initialState, action) {
+export default function routines (state = initialState, action) {
   switch (action.type) {
     case actionTypes.ROUTINES_LOAD_START:
       return loadRoutinesStart(state, action)
