@@ -10,11 +10,15 @@ import Statistics from './components/Content/Statistics'
 import History from './components/Content/History'
 import Body from './components/Content/Body'
 import More from './components/Content/More'
+import Exercises from './components/Content/Exercises'
+import Training from './components/Content/Training'
 
 const App = () => (
   <ThemeProvider theme={theme}>
     <Layout>
       <Switch>
+        <Route path='/training' component={Training} />
+        <Route path='/exercises' component={Exercises} />
         <Route path='/more' component={More} />
         <Route path='/body' component={Body} />
         <Route path='/history' component={History} />

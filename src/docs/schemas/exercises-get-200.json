@@ -1,0 +1,57 @@
+{
+    "$id": "exercises-get-200.json",
+    "title": "Exercises",
+    "description": "Exercises list",
+    "type": "object",
+    "properties": {
+        "Chest": {
+          "type": "array",
+          "items": {
+            "$ref": "exercise-body.json"
+          }
+        },
+        "Back": {
+          "type": "array",
+          "items": {
+            "$ref": "exercise-body.json"
+          }
+        },
+        "Leg": {
+          "type": "array",
+          "items": {
+            "$ref": "exercise-body.json"
+          }
+        },
+        "Calf": {
+          "type": "array",
+          "items": {
+            "$ref": "exercise-body.json"
+          }
+        },
+        "Shoulders": {
+          "type": "array",
+          "items": {
+            "$ref": "exercise-body.json"
+          }
+        },
+        "Triceps": {
+          "type": "array",
+          "items": {
+            "$ref": "exercise-body.json"
+          }
+        },
+        "Biceps": {
+          "type": "array",
+          "items": {
+            "$ref": "exercise-body.json"
+          }
+        },
+        "Abs": {
+          "type": "array",
+          "items": {
+            "$ref": "exercise-body.json"
+          }
+        }
+    }
+}
+  

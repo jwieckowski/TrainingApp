@@ -37,7 +37,7 @@ export default function Page404 () {
   return (
     <Box className={classes.root} data-testid='page-404'>
       <Typography component='h2'>
-        <Box className={classes.errorMessage}>{t('something-went-wrong')}.</Box>
+        <Box className={classes.errorMessage}>{t('dashboard:something-went-wrong')}.</Box>
       </Typography>
       <Button
         variant='contained'
@@ -45,7 +45,7 @@ export default function Page404 () {
         endIcon={<RefreshIcon />}
         onClick={handlePageRefresh}
       >
-        {t('refresh')}
+        {t('dashboard:refresh')}
       </Button>
     </Box>
   )

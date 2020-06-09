@@ -5,9 +5,11 @@
   "menu-body": "Ciało",
   "menu-more": "Więcej",
   "training-routine": "Rutyny treningowe",
-  "add-routine": "Dodaj rutynę",
+  "add-routine": "DODAJ RUTYNĘ",
   "routine-name": "Nazwa rutyny",
   "routine-label": "Etykieta",
   "add-cancel": "Anuluj",
-  "add-confirm": "Dodaj"
+  "add-confirm": "Dodaj",
+  "something-went-wrong": "Coś poszło nie tak...",
+  "refresh": "ODŚWIEŻ"
 }

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
@@ -11,7 +12,7 @@ import LanguageSelect from '../../../UI/LanguageSelect'
 
 const useStyles = makeStyles((theme) => ({
   icons: {
-    color: 'inherit'
+    color: theme.palette.text.main
   },
   toolbar: {
     paddingTop: '3px',
@@ -30,9 +31,11 @@ export default function Header () {
     <AppBar position='static' data-testid='header-id'>
       <Toolbar className={classes.toolbar}>
         <Box>
-          <IconButton className={classes.icons}>
-            <FitnessCenterIcon />
-          </IconButton>
+          <Link to='/'>
+            <IconButton className={classes.icons}>
+              <FitnessCenterIcon />
+            </IconButton>
+          </Link>
         </Box>
         <Typography variant='h4'>
             WorkIT

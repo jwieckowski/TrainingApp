@@ -9,8 +9,18 @@ async function addRoutine (db, routine) {
   return db.collection(collectionName).insertOne(routine)
 }
 
+async function updateRoutine (db, routine) {
+  return db.collection(collectionName).updateOne({ _id: parseInt(routine._id) }, {
+    $set: {
+      name: routine.name,
+      label: routine.label,
+      exercises: routine.exercises
+    }
+  })
+}
+
 async function removeRoutine (db, id) {
-  return db.collection(collectionName).deleteOne({"_id": parseInt(id) })
+  return db.collection(collectionName).deleteOne({ _id: parseInt(id) })
 }
 
 async function dropRoutines (db) {
@@ -20,6 +30,7 @@ async function dropRoutines (db) {
 module.exports = {
   getRoutines,
   addRoutine,
+  updateRoutine,
   removeRoutine,
   dropRoutines
 }

@@ -2,7 +2,7 @@
 const mongodb = require('mongo-mock')
 const MongoClient = mongodb.MongoClient
 const url = process.env.MONGODB_URI || 'mongodb://localhost/test-routines'
-const app = require('../../../app.js')
+const app = require('../../../../app.js')
 
 describe('check database routines interactions', () => {
   let connection

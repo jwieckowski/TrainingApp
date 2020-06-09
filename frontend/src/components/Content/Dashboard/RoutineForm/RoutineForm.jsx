@@ -12,6 +12,11 @@ import DialogTitle from '@material-ui/core/DialogTitle'
 import Dialog from '@material-ui/core/Dialog'
 
 const useStyles = makeStyles((theme) => ({
+  title: {
+    display: 'flex',
+    justifyContent: 'center',
+    width: '100%'
+  },
   form: {
     padding: theme.spacing(2)
   },
@@ -63,9 +68,11 @@ export default function PinnedSubheaderList ({ active, handleClose }) {
       open={active}
     >
       <DialogTitle id='routine-dialog'>
-        <Typography>
-          {t('dashboard:add-routine')}
-        </Typography>
+        <div className={classes.title}>
+          <Typography>
+            {t('dashboard:add-routine')}
+          </Typography>
+        </div>
         <FormControl className={classes.form}>
           <TextField
             required

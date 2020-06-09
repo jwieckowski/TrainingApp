@@ -6,10 +6,22 @@ export function * loadRoutines () {
 }
 
 export function * addRoutine (routine) {
+  routine.exercises = []
   const res = yield axios.post(`api/v1/routines/${routine._id}`, {
     _id: routine._id,
     name: routine.name,
-    label: routine.label
+    label: routine.label,
+    exercises: routine.exercises
+  })
+  return res
+}
+
+export function * updateRoutine (routine) {
+  const res = yield axios.post(`api/v1/routines/${routine._id}`, {
+    _id: routine._id,
+    name: routine.name,
+    label: routine.label,
+    exercises: routine.exercises
   })
   return res
 }

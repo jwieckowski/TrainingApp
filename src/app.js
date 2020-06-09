@@ -40,6 +40,15 @@ module.exports = function ({ port }) {
     prefix: '/api/v1/body'
   })
 
+  app.register(require('./routes/exercises'), {
+    prefix: '/api/v1/exercises'
+  })
+
+  app.register(require('./routes/favoriteExercises'), {
+    prefix: '/api/v1/favorite'
+  })
+
+
   app.register(require('./routes/catch-all/catch-all-api-404'), {
     prefix: '/api'
   })

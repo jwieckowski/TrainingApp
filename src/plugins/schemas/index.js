@@ -8,7 +8,8 @@ function registerSchemas (fastify, options, next) {
   fastify.addSchema(require(path.resolve('./src/docs/schemas/routine-add-body.json')))
   fastify.addSchema(require(path.resolve('./src/docs/schemas/body-data-get-200.json')))
   fastify.addSchema(require(path.resolve('./src/docs/schemas/body-data-add-body.json')))
-
+  fastify.addSchema(require(path.resolve('./src/docs/schemas/exercises-get-200.json')))
+  fastify.addSchema(require(path.resolve('./src/docs/schemas/exercise-body.json')))
   next()
 }
 

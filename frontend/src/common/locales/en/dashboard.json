@@ -5,9 +5,11 @@
   "menu-body": "Body",
   "menu-more": "More",
   "training-routine": "Training routines",
-  "add-routine": "Add routine",
+  "add-routine": "ADD ROUTINE",
   "routine-name": "Routine name",
   "routine-label": "Routine label",
   "add-cancel": "Cancel",
-  "add-confirm": "Add"
+  "add-confirm": "Add",
+  "something-went-wrong": "Something went wrong...",
+  "refresh": "REFRESH"
 }

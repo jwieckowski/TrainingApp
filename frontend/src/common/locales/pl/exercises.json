@@ -1,8 +1,5 @@
 {
-    "add-data": "Confirm",
-    "weight": "Weight",
-    "bmi": "BMI",
-    "fat": "Fat",
-    "muscle": "Muscle"
+    "exercises": "Ćwiczenia",
+    "finish-create": "ZAKOŃĆZ"
 }
   

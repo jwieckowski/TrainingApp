@@ -13,6 +13,12 @@
     "label": {
       "type": "string",
       "example": "wtorek"
+    },
+    "exercises": {
+      "type": "array",
+      "items": {
+        "$ref": "id.json"
+      }
     }
   },
   "required": [

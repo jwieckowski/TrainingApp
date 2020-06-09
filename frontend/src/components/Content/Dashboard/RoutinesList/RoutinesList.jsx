@@ -37,6 +37,7 @@ const drawItems = (routines, clickedItem, handleClickedItem) => {
     return (
       <Item
         key={routine._id}
+        routines={routines}
         id={routine._id}
         name={routine.name}
         label={routine.label}
@@ -61,7 +62,8 @@ const RoutinesList = () => {
     setActiveForm(state)
   }
 
-  function handleClickItem (id) {
+  function handleClickItem (e, id) {
+    e.stopPropagation()
     setClickedItem(clickedItem === id ? undefined : id)
   }
 

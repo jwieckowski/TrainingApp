@@ -8,12 +8,9 @@ import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1
-  },
-  title: {
-    flexGrow: 1
-  },
+  root: props => ({
+    display: props.value > 4 ? 'none' : 'block'
+  }),
   tabs: {
     flexGrow: 1,
     minHeight: theme.spacing(7)
@@ -49,24 +46,26 @@ function checkActive (url) {
     '/statistics': 1,
     '/history': 2,
     '/body': 3,
-    '/more': 4
+    '/more': 4,
+    '/exercises': 5,
+    '/training': 6
   }
   return sites[url] || 0
 }
 
-export default function Header () {
-  const classes = useStyles()
+export default function BottomMenu () {
   const location = useLocation()
 
   const { t } = useTranslation()
-
   const [value, setValue] = useState(checkActive(location.pathname))
   const handleChange = (event, newValue) => {
     setValue(newValue)
   }
 
+  const classes = useStyles({ value })
+
   return (
-    <AppBar position='static' data-testid='header-id'>
+    <AppBar position='static' data-testid='bottom-menu-id' className={classes.root}>
       <Toolbar className={classes.toolbar}>
         <Tabs
           edge='start'

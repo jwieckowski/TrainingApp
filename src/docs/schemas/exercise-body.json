@@ -1,0 +1,27 @@
+{
+    "title": "Exercise part body",
+    "$id": "exercise-body.json",
+    "type": "object",
+    "properties": {
+      "_id": {
+        "$ref": "id.json"
+      },
+      "name": {
+        "type": "string",
+        "example": "Barbell chest press"
+      },
+      "type": {
+        "type": "string",
+        "example": "Chest"
+      },
+      "favorite": {
+        "type": "boolean",
+        "example": "True"
+      }
+    },
+    "required": [
+      "_id",
+      "name",
+      "type"
+    ]
+  }
