@@ -63,3 +63,6 @@ export function * removeExerciseRoutinesListSaga ({ id }) {
     yield put(actions.removeExerciseRoutineListFail(error))
   }
 }
+
+export function * chooseActiveRoutineSaga ({ id }) {
+}

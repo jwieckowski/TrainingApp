@@ -48,8 +48,6 @@ const routines = async function (fastify, options, next) {
   })
 
   fastify.post('/:id', postSchema, async function (req, rep) {
-    console.log('z routes')
-    console.log(req.body)
     const res = await helpers.defineRoutine(this.db, this.mongo.db, req.body)
     rep.code(200).send(res)
   })

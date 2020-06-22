@@ -188,3 +188,10 @@ export function removeExerciseRoutineListFail (error) {
     error
   }
 }
+
+export function chooseActiveRoutine (id) {
+  return {
+    type: actionTypes.ROUTINE_CHOOSE_ACTIVE,
+    id
+  }
+}

@@ -1,0 +1,9 @@
+{
+    "add-data": "ADD",
+    "start-training": "START",
+    "end-training": "END",
+    "time-training": "TIME",
+    "edit-training": "EDIT",
+    "weight" : "Weight",
+    "reps": "Reps"
+}

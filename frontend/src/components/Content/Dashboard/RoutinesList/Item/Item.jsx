@@ -2,7 +2,7 @@ import React from 'react'
 import { useHistory } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
 import { useDispatch } from 'react-redux'
-import { removeRoutine, createRoutineList } from '@data/actions/routinesActions.js'
+import { removeRoutine, createRoutineList, chooseActiveRoutine } from '@data/actions/routinesActions.js'
 import Paper from '@material-ui/core/Paper'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
@@ -55,8 +55,9 @@ const Item = ({ routines, id, name, label, clickedItem, handleClickedItem }) => 
     history.push('/exercises')
   }
 
-  const handleStartClick = (e) => {
+  const handleStartClick = (e, id) => {
     e.stopPropagation()
+    dispatch(chooseActiveRoutine(id))
     history.push('/training')
   }
 
@@ -72,14 +73,14 @@ const Item = ({ routines, id, name, label, clickedItem, handleClickedItem }) => 
           canStartTraining() &&
             <IconButton
               className={classes.listIcon}
-              onClick={(e) => handleStartClick(e)}
+              onClick={(e) => handleStartClick(e, id)}
             >
               <PlayCircleFilledIcon />
             </IconButton>
         }
         <ListItemText
           primary={
-            <Typography>
+            <Typography variant='h4'>
               {name}
             </Typography>
           }

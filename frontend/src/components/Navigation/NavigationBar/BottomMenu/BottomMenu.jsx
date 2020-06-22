@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useLocation, Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
 import Tabs from '@material-ui/core/Tabs'
@@ -47,8 +47,8 @@ function checkActive (url) {
     '/history': 2,
     '/body': 3,
     '/more': 4,
-    '/exercises': 5,
-    '/training': 6
+    // '/exercises': 5,
+    // '/training': 6
   }
   return sites[url] || 0
 }
@@ -61,6 +61,8 @@ export default function BottomMenu () {
   const handleChange = (event, newValue) => {
     setValue(newValue)
   }
+
+  useEffect(() => { checkActive(location.pathname) }, [location])
 
   const classes = useStyles({ value })
 

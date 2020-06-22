@@ -22,8 +22,8 @@ const useStyles = makeStyles((theme) => ({
     margin: 'auto',
     backgroundColor: theme.palette.background.paper,
     overflow: 'auto',
-    height: '40%',
-    maxHeight: '40%'
+    height: '60%',
+    maxHeight: '60%'
   },
   column: {
     // minWidth: '100px',

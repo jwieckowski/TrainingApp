@@ -57,7 +57,7 @@ const Exercises = () => {
   const { exercises, loadingExercises, loadError } = useSelector(state => state.exercises)
   const { routines, routineID, creatingRoutine } = useSelector(state => state.routines)
 
-  useEffect(() => { dispatch(loadExercises()) }, [])
+  useEffect(() => { dispatch(loadExercises()) }, []) // warunek
 
   const handlePartClick = (key) => {
     setClickedPart(clickedPart === key ? undefined : key)

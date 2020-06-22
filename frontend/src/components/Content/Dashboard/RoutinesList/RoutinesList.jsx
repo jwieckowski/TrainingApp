@@ -54,6 +54,7 @@ const RoutinesList = () => {
   const { t } = useTranslation()
 
   const { routines, loadingRoutines, loadError } = useSelector(state => state.routines)
+
   const [activeForm, setActiveForm] = useState(false)
   const [clickedItem, setClickedItem] = useState(undefined)
   useEffect(() => { dispatch(loadRoutines()) }, [])

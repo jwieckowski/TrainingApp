@@ -2,16 +2,17 @@ import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles'
-import { loadExercises } from '@data/actions/exercisesActions.js'
-import { saveExerciseRoutineList } from '@data/actions/routinesActions.js'
 import { useTranslation } from 'react-i18next'
+
+import { loadExercises } from '@data/actions/exercisesActions.js'
+
 import Spinner from '../../UI/Spinner'
 import Page404 from '../../UI/Page404'
 
-import Box from '@material-ui/core/Box'
+import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
-import Button from '@material-ui/core/Button'
-import List from '@material-ui/core/List'
+import InfoBar from './InfoBar'
+import TrainingContent from './TrainingContent'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,16 +20,20 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
     overflow: 'auto',
     height: '100%',
-    maxHeight: '100%'
+    maxHeight: '100%',
+    margin: 0
   },
-  button: {
+  infoBar: {
+    width: '100%',
+    height: '10%',
+    maxHeight: '10%'
+  },
+  rest: {
+    width: '100%',
+    height: '90%',
     display: 'flex',
     justifyContent: 'center',
-    marginTop: theme.spacing(2)
-  },
-  routineName: {
-    display: 'flex',
-    justifyContent: 'center'
+    alignItems: 'center'
   }
 }))
 
@@ -38,21 +43,33 @@ const Exercises = () => {
   const { t } = useTranslation()
   const history = useHistory()
 
-  const [clickedPart, setClickedPart] = useState(undefined)
+  const [trainingExercises, setTrainingExercises] = useState(undefined)
   const { exercises, loadingExercises, loadError } = useSelector(state => state.exercises)
-  const { routines, routineID, creatingRoutine } = useSelector(state => state.routines)
+  const { routines, routineID, loadingRoutines } = useSelector(state => state.routines)
 
+  useEffect(() => {
+    dispatch(loadExercises())
+  }, [])
+
+  useEffect(() => {
+    if (!loadingRoutines && !loadingExercises && routineID) {
+      const activeRoutine = routines.filter(routine => routine._id === routineID)[0]
+      const trainingExercises = Object.values(exercises).map(part => part.filter(e => activeRoutine.exercises.includes(e._id))).flat()
+      setTrainingExercises(trainingExercises)
+    }
+  }, [loadingRoutines, loadingExercises])
 
   let content = <Spinner />
 
   if (!loadingExercises) {
     if (!loadError) {
       content = (
-        <>
-          <Typography>
-            Training
-          </Typography>
-        </>
+        <Grid className={classes.root}>
+          <InfoBar className={classes.infoBar} />
+          <Grid className={classes.rest}>
+            <TrainingContent trainingExercises={trainingExercises} />
+          </Grid>
+        </Grid>
       )
     } else {
       content = <Page404 />

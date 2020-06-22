@@ -1,7 +1,9 @@
 import { takeLatest } from 'redux-saga/effects'
 import {
   loadRoutinesSaga, addRoutineSaga, removeRoutineSaga,
-  createRoutinesListSaga, addExerciseRoutinesListSaga, removeExerciseRoutinesListSaga, saveExerciseRoutinesListSaga
+  createRoutinesListSaga, addExerciseRoutinesListSaga,
+  removeExerciseRoutinesListSaga, saveExerciseRoutinesListSaga,
+  chooseActiveRoutineSaga
 } from './routinesSaga'
 import actionTypes from '@constants/actionTypes'
 
@@ -13,4 +15,5 @@ export function * watchRoutines () {
   yield takeLatest(actionTypes.ROUTINE_CREATE_ADD_ACTION, addExerciseRoutinesListSaga)
   yield takeLatest(actionTypes.ROUTINE_CREATE_REMOVE_ACTION, removeExerciseRoutinesListSaga)
   yield takeLatest(actionTypes.ROUTINE_CREATE_SAVE_ACTION, saveExerciseRoutinesListSaga)
+  yield takeLatest(actionTypes.ROUTINE_CHOOSE_ACTIVE, chooseActiveRoutineSaga)
 }

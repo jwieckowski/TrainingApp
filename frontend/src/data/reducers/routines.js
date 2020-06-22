@@ -186,6 +186,13 @@ const removeExerciseRoutineListFail = (state, action) => {
   }
 }
 
+const chooseActiveRoutine = (state, action) => {
+  return {
+    ...state,
+    routineID: action.id
+  }
+}
+
 export default function routines (state = initialState, action) {
   switch (action.type) {
     case actionTypes.ROUTINES_LOAD_START:
@@ -230,6 +237,8 @@ export default function routines (state = initialState, action) {
       return saveExerciseRoutineListSuccess(state, action)
     case actionTypes.ROUTINE_CREATE_SAVE_FAIL:
       return saveExerciseRoutineListFail(state, action)
+    case actionTypes.ROUTINE_CHOOSE_ACTIVE:
+      return chooseActiveRoutine(state, action)
     default:
       return state
   }

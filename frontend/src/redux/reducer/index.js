@@ -5,10 +5,12 @@ import routines from '@data/reducers/routines.js'
 import body from '@data/reducers/body.js'
 import exercises from '@data/reducers/exercises.js'
 import favoriteExercises from '@data/reducers/favoriteExercises.js'
+import training from '@data/reducers/training.js'
 
 export default combineReducers({
   routines,
   body,
   exercises,
-  favoriteExercises
+  favoriteExercises,
+  training
 })

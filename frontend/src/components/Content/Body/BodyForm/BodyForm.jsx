@@ -13,8 +13,8 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     backgroundColor: theme.palette.background.paper,
     overflow: 'auto',
-    height: '60%',
-    maxHeight: '60%'
+    height: '40%',
+    maxHeight: '40%'
   },
   form: {
     display: 'flex',
@@ -26,6 +26,9 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'row',
     justifyContent: 'space-around',
     padding: theme.spacing(3)
+  },
+  button: {
+    width: '15%'
   }
 }))
 
@@ -107,7 +110,12 @@ const BodyTable = () => {
           />
         </div>
         <div className={classes.row}>
-          <Button variant='contained' color='primary' onClick={handleSubmit}>
+          <Button
+            className={classes.button}
+            variant='contained'
+            color='primary'
+            onClick={handleSubmit}
+          >
             {t('body:add-data')}
           </Button>
         </div>

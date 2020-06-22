@@ -48,6 +48,9 @@ module.exports = function ({ port }) {
     prefix: '/api/v1/favorite'
   })
 
+  app.register(require('./routes/training'), {
+    prefix: '/api/v1/training'
+  })
 
   app.register(require('./routes/catch-all/catch-all-api-404'), {
     prefix: '/api'
