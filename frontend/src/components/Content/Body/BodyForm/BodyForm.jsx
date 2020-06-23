@@ -57,6 +57,7 @@ const BodyTable = () => {
   function handleSubmit () {
     const data = {
       _id: clickedItem === undefined ? id : clickedItem._id,
+      date: new Date(),
       ...form
     }
     Object.entries(form).find(([key, value]) => value === undefined)

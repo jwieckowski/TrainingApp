@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles'
 import { clickedItemBodyData } from '@data/actions/bodyActions.js'
 
+import Box from '@material-ui/core/Box'
 import TableCell from '@material-ui/core/TableCell'
 import TableRow from '@material-ui/core/TableRow'
 import IconButton from '@material-ui/core/IconButton'
@@ -16,6 +17,10 @@ const useStyles = makeStyles((theme) => ({
     // minWidth: '100px',
     width: '12.5vw'
   },
+  // date: {
+  //   position: 'fixed',
+  //   left: '25'
+  // },
   edit: props => ({
     display: props.clicked ? 'block' : 'none',
     position: 'fixed',
@@ -30,6 +35,11 @@ const Item = ({ data, clickedItem, handleClick }) => {
   const classes = useStyles({ clicked })
   const dispatch = useDispatch()
 
+  const formatDate = (date) => {
+    const format = new Date(date)
+    return date && format.getDate() + '.' + format.getMonth()
+  }
+
   return (
     <TableRow
       hover
@@ -37,6 +47,9 @@ const Item = ({ data, clickedItem, handleClick }) => {
       className={classes.row}
       onClick={() => handleClick(data._id)}
     >
+      {/* <Box className={classes.date}>
+        {formatDate(data.date)}
+      </Box> */}
       <TableCell key={data._id} align='center' className={classes.column}>
         {data.weight}
       </TableCell>

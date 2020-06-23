@@ -11,7 +11,8 @@ export function * addBodyData (body) {
     weight: body.weight,
     bmi: body.bmi,
     fat: body.fat,
-    muscle: body.muscle
+    muscle: body.muscle,
+    date: body.date
   })
   return res
 }

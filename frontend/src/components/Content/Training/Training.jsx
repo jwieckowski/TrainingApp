@@ -10,7 +10,6 @@ import Spinner from '../../UI/Spinner'
 import Page404 from '../../UI/Page404'
 
 import Grid from '@material-ui/core/Grid'
-import Typography from '@material-ui/core/Typography'
 import InfoBar from './InfoBar'
 import TrainingContent from './TrainingContent'
 
