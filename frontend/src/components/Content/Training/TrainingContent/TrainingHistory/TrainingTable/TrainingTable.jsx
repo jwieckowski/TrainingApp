@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+
+import { loadTrainings } from '@data/actions/trainingActions.js'
 
 import Box from '@material-ui/core/Box'
 import Typography from '@material-ui/core/Typography'
@@ -20,41 +22,36 @@ const useStyles = makeStyles({
   }
 })
 
-let mockTraining = [
-  {
-    date: 24.06,
-    activeExercises: [0, 1],
-    trainingSeries: [[[90, 9], [90, 10], [90, 11], [90, 10]], [[30, 9], [30, 10], [30, 11], [30, 10]]]
-  },
-  {
-    date: 22.06,
-    activeExercises: [1, 0],
-    trainingSeries: [[[90, 9], [90, 10], [90, 11], [90, 10]], [[30, 9], [30, 10], [30, 11], [30, 10]]]
-  },
-  {
-    date: 21.06,
-    activeExercises: [0, 1],
-    trainingSeries: [[[90, 9], [90, 10], [90, 11], [90, 10]], [[30, 9], [30, 10], [30, 11], [30, 10]]]
-  }
-]
-
-const formatTraining = (date, training) => training && training.length !== 0 && date + ', ' + training.map(series => series.join('x')).join(', ')
+const formatDate = (date) => {
+  const d = new Date(date)
+  return d.getDate() + '.' + (d.getMonth() < 9 ? '0' + (d.getMonth() + 1) : d.getMonth() + 1)
+}
+const formatTraining = (date, training) => training && training.length !== 0 && formatDate(date) + ', ' + training.map(series => series.join('x')).join(', ')
 
 const TrainingTable = ({ form, activeIndex }) => {
   const classes = useStyles()
+  const dispatch = useDispatch()
 
-  const { date, activeExercises, trainingSeries } = useSelector(state => state.training)
+  const [trainingResults, setTrainingResults] = useState(undefined)
+  const { date, activeExercises, trainingSeries, historyTrainings } = useSelector(state => state.training)
 
   useEffect(() => {
-    mockTraining = mockTraining.filter(training => training.date === date).length === 0
-      ? [{ date, activeExercises, trainingSeries }, ...mockTraining]
-      : [...mockTraining.map(training => {
-        training = training.date === date
-          ? { date, activeExercises, trainingSeries }
-          : training
-        return training
-      })]
-    mockTraining = mockTraining.filter((value, index) => index < 7)
+    dispatch(loadTrainings())
+  }, [])
+
+  useEffect(() => {
+    trainingResults === undefined
+      ? setTrainingResults(historyTrainings.filter((value, index) => index < 7))
+      : setTrainingResults(
+        trainingResults.filter(training => training.date === date).length === 0
+          ? [{ date, activeExercises, trainingSeries }, ...historyTrainings]
+          : [...trainingResults.map(training => {
+            training = training.date === date
+              ? { date, activeExercises, trainingSeries }
+              : training
+            return training
+          })].filter((value, index) => index < 7)
+      )
   }, [trainingSeries, activeExercises, activeIndex])
 
   const createData = (date, training) => {
@@ -69,9 +66,8 @@ const TrainingTable = ({ form, activeIndex }) => {
   }
 
   return (
-    // max 7 last trainings
     <Box className={classes.table}>
-      {mockTraining.map(training => createData(training.date, training.trainingSeries[training.activeExercises.indexOf(activeIndex)]))}
+      {trainingResults !== undefined && trainingResults.map(training => createData(training.date, training.trainingSeries[training.activeExercises.indexOf(activeIndex)]))}
     </Box>
   )
 }

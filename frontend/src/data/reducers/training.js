@@ -12,10 +12,12 @@ mockInitialState = {
 */
 
 const initialState = {
-  date: new Date().getDate() + '.' + (new Date().getMonth() < 9 ? '0' + (new Date().getMonth() + 1) : new Date().getMonth() + 1),
+  date: new Date(),
   activeExercises: [], // store ids of exercises
   trainingSeries: [], // array of arrays for specific exercises series,
   historyTrainings: [],
+  trainingActive: false,
+  trainingTime: undefined,
   loadingTrainings: false,
   loadError: undefined,
   addError: undefined
@@ -72,7 +74,9 @@ const addTrainingSuccess = (state, action) => {
     ...state,
     historyTrainings: [action.training, ...state.historyTrainings],
     trainingSeries: [],
-    activeExercises: []
+    activeExercises: [],
+    trainingActive: false,
+    trainingTime: action.trainingTime
   }
 }
 
@@ -80,6 +84,20 @@ const addTrainingFail = (state, action) => {
   return {
     ...state,
     addError: action.error
+  }
+}
+
+const startTraining = (state, action) => {
+  return {
+    ...state,
+    trainingActive: true
+  }
+}
+
+const endTraining = (state, action) => {
+  return {
+    ...state,
+    trainingActive: false
   }
 }
 
@@ -99,6 +117,10 @@ export default function training (state = initialState, action) {
       return addTrainingSuccess(state, action)
     case actionTypes.TRAINING_ADD_FAIL:
       return addTrainingFail(state, action)
+    case actionTypes.TRAINING_START_ACTION:
+      return startTraining(state, action)
+    case actionTypes.TRAINING_END_ACTION:
+      return endTraining(state, action)
     default:
       return state
   }

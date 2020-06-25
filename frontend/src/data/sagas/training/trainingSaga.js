@@ -8,8 +8,8 @@ export function * addTrainingSeriesSaga ({ weight, reps, exerciseID }) {
 export function * loadTrainingsSaga () {
   yield put(actions.loadTrainingsStart())
   try {
-    const trainings = yield call(loadTrainings)
-    yield put(actions.loadTrainingsSuccess(trainings))
+    const historyTrainings = yield call(loadTrainings)
+    yield put(actions.loadTrainingsSuccess(historyTrainings))
   } catch (error) {
     yield put(actions.loadTrainingsFail(error))
   }
@@ -23,4 +23,10 @@ export function * addTrainingSaga ({ training }) {
   } catch (error) {
     yield put(actions.addTrainingFail(error))
   }
+}
+
+export function * startTrainingSaga () {
+}
+
+export function * endTrainingSaga () {
 }

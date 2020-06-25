@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles'
 import { useTranslation } from 'react-i18next'
 
-import { addTrainingSeries } from '@data/actions/trainingActions.js'
+import { addTrainingSeries, startTraining } from '@data/actions/trainingActions.js'
 
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
@@ -52,7 +52,6 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const initialForm = {
-  date: new Date().getDate() + '.' + (new Date().getMonth() < 9 ? '0' + (new Date().getMonth() + 1) : new Date().getMonth() + 1),
   weightReps: []
 }
 
@@ -60,11 +59,14 @@ const TrainingContent = ({ trainingExercises }) => {
   const classes = useStyles()
   const dispatch = useDispatch()
 
+  const { trainingActive } = useSelector(state => state.training)
+
   const [form, setForm] = useState(initialForm)
   const [activeIndex, setActiveIndex] = useState(0)
 
   function addSeries (seriesForm) {
     setForm({ ...form, weightReps: [...form.weightReps, [seriesForm.weight, seriesForm.reps]] })
+    !trainingActive && dispatch(startTraining())
     dispatch(addTrainingSeries(seriesForm.weight, seriesForm.reps, activeIndex))
   }
 

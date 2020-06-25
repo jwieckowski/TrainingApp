@@ -10,7 +10,9 @@ export function * addTraining (training) {
     _id: training._id,
     date: training.date,
     activeExercises: training.activeExercises,
-    trainingSeries: training.trainingSeries
+    trainingSeries: training.trainingSeries,
+    routine: training.routine,
+    routineExercises: training.routineExercises
   })
   return res
 }

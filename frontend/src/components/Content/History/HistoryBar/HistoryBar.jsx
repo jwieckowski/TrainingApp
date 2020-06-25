@@ -25,24 +25,40 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-around'
+  },
+  title: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 }))
 
-export default function HistoryBar () {
+export default function HistoryBar ({ training, handleClick }) {
   const classes = useStyles()
+
+  const formatDate = (date) => {
+    const d = new Date(date)
+    return d.getDate() + '.' + (d.getMonth() < 9 ? '0' + (d.getMonth() + 1) : d.getMonth() + 1)
+  }
 
   return (
     <Box
       className={classes.root}
     >
       <Box className={classes.bar}>
-        <IconButton>
+        <IconButton onClick={() => handleClick(1)}>
           <ArrowBackIosIcon />
         </IconButton>
-        <Typography variant='h5'>
-          data
-        </Typography>
-        <IconButton>
+        <Box className={classes.title}>
+          <Typography variant='h5'>
+            {training && training.routine}
+          </Typography>
+          <Typography variant='h6'>
+            {training && formatDate(training.date)}
+          </Typography>
+        </Box>
+        <IconButton onClick={() => handleClick(2)}>
           <ArrowForwardIosIcon />
         </IconButton>
       </Box>

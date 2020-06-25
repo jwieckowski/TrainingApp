@@ -48,8 +48,6 @@ const routines = async function (fastify, options, next) {
   })
 
   fastify.post('/:id', async function (req, rep) {
-    console.log('body')
-    console.log(req.body)
     const res = await this.db.addTraining(this.mongo.db, req.body)
     rep.code(200).send(res)
   })

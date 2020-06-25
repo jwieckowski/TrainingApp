@@ -51,7 +51,7 @@ const BodyTable = () => {
     setClickedItem(clickedItem === id ? undefined : id)
   }
 
-  const columns = [t('body:weight'), t('body:bmi'), t('body:fat'), t('body:muscle')]
+  const columns = [t('body:date'), t('body:weight'), t('body:bmi'), t('body:fat'), t('body:muscle')]
   let content = <Spinner />
 
   if (!loadingBodyData) {

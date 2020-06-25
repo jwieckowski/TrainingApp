@@ -21,10 +21,10 @@ export function loadTrainingsStart () {
   }
 }
 
-export function loadTrainingsSuccess (historyTraining) {
+export function loadTrainingsSuccess (historyTrainings) {
   return {
     type: actionTypes.TRAINING_LOAD_SUCCESS,
-    historyTraining
+    historyTrainings
   }
 }
 
@@ -59,5 +59,17 @@ export function addTrainingFail (error) {
   return {
     type: actionTypes.TRAINING_ADD_FAIL,
     error
+  }
+}
+
+export function startTraining () {
+  return {
+    type: actionTypes.TRAINING_START_ACTION
+  }
+}
+
+export function endTraining () {
+  return {
+    type: actionTypes.TRAINING_END_ACTION
   }
 }

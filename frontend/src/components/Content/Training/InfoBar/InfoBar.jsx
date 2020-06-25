@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles'
 import { useTranslation } from 'react-i18next'
 
-import { addTraining } from '@data/actions/trainingActions.js'
+import { addTraining, startTraining, endTraining } from '@data/actions/trainingActions.js'
 
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
@@ -37,12 +37,35 @@ const InfoBar = () => {
   const dispatch = useDispatch()
   const { t } = useTranslation()
 
+  const [trainingTime, setTrainingTime] = useState(1)
   const [started, setStarted] = useState(false)
-  const { date, trainingSeries, activeExercises } = useSelector(state => state.training)
+
+  const { date, trainingSeries, activeExercises, trainingActive, historyTrainings } = useSelector(state => state.training)
+  const { routines, routineID } = useSelector(state => state.routines)
+
+  const getRoutine = () => routines && routines.filter(routine => routine._id === routineID)[0]
+
+  const calculateTime = () => {
+    const interval = setInterval(() => {
+      setTrainingTime(prevState => prevState + 1)
+    }, 60000)
+    return interval
+  }
+  useEffect(() => {
+    setStarted(trainingActive)
+    const interval = trainingActive
+      ? calculateTime()
+      : setTrainingTime(1)
+    return () => clearInterval(interval)
+  }, [trainingActive])
 
   const handleClick = () => {
     setStarted(prev => !prev)
-    dispatch(addTraining({ _id: 1, date, activeExercises, trainingSeries }))
+    trainingActive
+      ? activeExercises.length !== 0
+        ? dispatch(addTraining({ _id: historyTrainings.length + 1, date, activeExercises, trainingSeries, routine: getRoutine().name, routineExercises: getRoutine().exercises }))
+        : dispatch(endTraining())
+      : dispatch(startTraining())
   }
 
   return (
@@ -60,7 +83,7 @@ const InfoBar = () => {
           <TimerIcon fontSize='large' />
         </IconButton>
         <Typography>
-          {t('training:time-training')}
+          {trainingActive ? `${trainingTime} min` : t('training:time-training')}
         </Typography>
       </Box>
       <Box className={classes.tabs}>

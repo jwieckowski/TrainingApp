@@ -3,6 +3,7 @@
     "weight": "Weight",
     "bmi": "BMI",
     "fat": "Fat",
-    "muscle": "Muscle"
+    "muscle": "Muscle",
+    "date": "Date"
 }
   
