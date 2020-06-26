@@ -8,6 +8,8 @@ import trainingEN from './en/training.json'
 import trainingPL from './pl/training.json'
 import moreEN from './en/more.json'
 import morePL from './pl/more.json'
+import calendarEN from './en/calendar.json'
+import calendarPL from './pl/calendar.json'
 
 export default {
   en: {
@@ -15,13 +17,15 @@ export default {
     body: bodyEN,
     exercises: exercisesEN,
     training: trainingEN,
-    more: moreEN
+    more: moreEN,
+    calendar: calendarEN
   },
   pl: {
     dashboard: dashboardPL,
     body: bodyPL,
     exercises: exercisesPL,
     training: trainingPL,
-    more: morePL
+    more: morePL,
+    calendar: calendarPL
   }
 }

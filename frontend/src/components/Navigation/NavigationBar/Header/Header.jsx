@@ -9,6 +9,7 @@ import Box from '@material-ui/core/Box'
 import TodayIcon from '@material-ui/icons/Today'
 import IconButton from '@material-ui/core/IconButton'
 import LanguageSelect from '../../../UI/LanguageSelect'
+import Calendar from '../../../Content/Calendar'
 
 const useStyles = makeStyles((theme) => ({
   icons: {
@@ -46,6 +47,7 @@ export default function Header () {
             <TodayIcon />
           </IconButton>
         </Box>
+        <Calendar />
       </Toolbar>
     </AppBar>
   )
