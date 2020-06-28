@@ -9,7 +9,7 @@ export function * loadTrainingsSaga () {
   yield put(actions.loadTrainingsStart())
   try {
     const historyTrainings = yield call(loadTrainings)
-    yield put(actions.loadTrainingsSuccess(historyTrainings))
+    yield put(actions.loadTrainingsSuccess(historyTrainings.reverse()))
   } catch (error) {
     yield put(actions.loadTrainingsFail(error))
   }

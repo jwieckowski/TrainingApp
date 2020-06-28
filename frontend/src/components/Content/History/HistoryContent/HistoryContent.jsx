@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   },
   list: {
     width: '100%',
-    height: '100%'
+    height: '90%'
   },
   item: {
     width: '100%',

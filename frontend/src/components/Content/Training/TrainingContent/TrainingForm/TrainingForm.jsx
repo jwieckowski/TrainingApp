@@ -42,19 +42,27 @@ const TrainingForm = ({ handleClick, activeIndex }) => {
   const classes = useStyles()
   const { t } = useTranslation()
 
-  const { activeExercises, trainingSeries } = useSelector(state => state.training)
+  const { activeExercises, trainingSeries, historyTrainings } = useSelector(state => state.training)
+  const { routines, routineID } = useSelector(state => state.routines)
   const [seriesForm, setSeriesForm] = useState(seriesInitialForm)
 
   const getLastSeriesValue = (index) => trainingSeries[activeExercises.indexOf(activeIndex)][trainingSeries[activeExercises.indexOf(activeIndex)].length - 1][index]
+  const getLastHistoricSeriesValue = () => historyTrainings && routines && historyTrainings.filter(training => training.name === getActiveRoutine().routine)
+  const getActiveRoutine = () => routines.filter(routine => routine._id === routineID)[0]
 
-  useEffect(() => { // set values in input from last series in exercise (now only for active training, need to change to take last historic value from exercise)
-    activeExercises.indexOf(activeIndex) !== -1 &&
-    setSeriesForm({
-      ...seriesForm,
-      weight: getLastSeriesValue(0),
-      reps: getLastSeriesValue(1)
-    })
-  }, [trainingSeries, activeIndex])
+  useEffect(() => {
+    activeExercises.indexOf(activeIndex) === -1
+      ? setSeriesForm({
+        ...seriesForm,
+        weight: getLastHistoricSeriesValue()[0] !== undefined && getLastHistoricSeriesValue()[0].trainingSeries[activeIndex][0][0],
+        reps: getLastHistoricSeriesValue()[0] !== undefined && getLastHistoricSeriesValue()[0].trainingSeries[activeIndex][0][1]
+      })
+      : setSeriesForm({
+        ...seriesForm,
+        weight: getLastSeriesValue(0),
+        reps: getLastSeriesValue(1)
+      })
+  }, [trainingSeries, activeIndex, historyTrainings])
 
   function handleChange (event) {
     setSeriesForm({ ...seriesForm, [event.target.name]: parseInt(event.target.value) })

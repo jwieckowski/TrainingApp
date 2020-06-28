@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
@@ -10,6 +11,7 @@ import TodayIcon from '@material-ui/icons/Today'
 import IconButton from '@material-ui/core/IconButton'
 import LanguageSelect from '../../../UI/LanguageSelect'
 import Calendar from '../../../Content/Calendar'
+import { openCalendar } from '@data/actions/calendarActions.js'
 
 const useStyles = makeStyles((theme) => ({
   icons: {
@@ -27,13 +29,16 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Header () {
   const classes = useStyles()
+  const dispatch = useDispatch()
+
+  const handleClick = () => dispatch(openCalendar())
 
   return (
     <AppBar position='static' data-testid='header-id'>
       <Toolbar className={classes.toolbar}>
         <Box>
           <Link to='/'>
-            <IconButton className={classes.icons}>
+            <IconButton className={classes.icons} >
               <FitnessCenterIcon />
             </IconButton>
           </Link>
@@ -43,7 +48,7 @@ export default function Header () {
         </Typography>
         <Box>
           <LanguageSelect />
-          <IconButton className={classes.icons}>
+          <IconButton className={classes.icons} onClick={handleClick}>
             <TodayIcon />
           </IconButton>
         </Box>

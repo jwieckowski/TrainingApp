@@ -5,5 +5,6 @@
     "time-training": "CZAS",
     "edit-training": "EDYCJA",
     "weight" : "Ciężar",
-    "reps": "Powtórzenia"
+    "reps": "Powtórzenia",
+    "no-trainings": "Brak zarejetrowanych treningów..."
 }

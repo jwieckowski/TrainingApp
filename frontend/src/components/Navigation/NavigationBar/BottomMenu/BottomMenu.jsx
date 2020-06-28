@@ -46,9 +46,7 @@ function checkActive (url) {
     '/statistics': 1,
     '/history': 2,
     '/body': 3,
-    '/more': 4,
-    // '/exercises': 5,
-    // '/training': 6
+    '/more': 4
   }
   return sites[url] || 0
 }
@@ -61,8 +59,7 @@ export default function BottomMenu () {
   const handleChange = (event, newValue) => {
     setValue(newValue)
   }
-
-  useEffect(() => { checkActive(location.pathname) }, [location])
+  useEffect(() => { setValue(checkActive(location.pathname)) }, [location])
 
   const classes = useStyles({ value })
 

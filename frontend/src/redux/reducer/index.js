@@ -6,11 +6,13 @@ import body from '@data/reducers/body.js'
 import exercises from '@data/reducers/exercises.js'
 import favoriteExercises from '@data/reducers/favoriteExercises.js'
 import training from '@data/reducers/training.js'
+import calendar from '@data/reducers/calendar.js'
 
 export default combineReducers({
   routines,
   body,
   exercises,
   favoriteExercises,
-  training
+  training,
+  calendar
 })

@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles'
 import { useTranslation } from 'react-i18next'
+
+import { closeCalendar } from '@data/actions/calendarActions.js'
 
 import DialogTitle from '@material-ui/core/DialogTitle'
 import DialogContent from '@material-ui/core/DialogContent'
@@ -45,11 +48,12 @@ const initialDate = {
 
 const Calendar = () => {
   const classes = useStyles()
+  const dispatch = useDispatch()
   const { t } = useTranslation()
 
-  const [date, setDate] = useState(initialDate)
-  const open = true
+  const { open } = useSelector(state => state.calendar)
 
+  const [date, setDate] = useState(initialDate)
   const months = [t('calendar:jan'), t('calendar:feb'), t('calendar:mar'), t('calendar:apr'), t('calendar:may'), t('calendar:jun'), t('calendar:jul'), t('calendar:aug'), t('calendar:sep'), t('calendar:oct'), t('calendar:nov'), t('calendar:dec')]
 
   const handleClick = (type) => {
@@ -61,6 +65,8 @@ const Calendar = () => {
         ? setDate({ ...date, month: date.month + 1 })
         : setDate({ ...date, year: date.year + 1, month: 0 })
   }
+
+  const handleClose = () => dispatch(closeCalendar())
 
   return (
     <Dialog
@@ -96,7 +102,7 @@ const Calendar = () => {
         </DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button color='primary'>
+        <Button color='primary' onClick={handleClose}>
           {t('calendar:close')}
         </Button>
       </DialogActions>

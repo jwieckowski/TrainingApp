@@ -18,8 +18,7 @@ const useStyles = makeStyles((theme) => ({
   },
   form: {
     display: 'flex',
-    flexDirection: 'column',
-    padding: theme.spacing(3)
+    flexDirection: 'column'
   },
   row: {
     display: 'flex',
