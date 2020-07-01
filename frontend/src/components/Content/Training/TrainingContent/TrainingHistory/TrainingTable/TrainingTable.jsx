@@ -52,6 +52,7 @@ const TrainingTable = ({ form, activeIndex }) => {
             return training
           })].filter((value, index) => index < 7)
       )
+    activeExercises.length === 0 && setTrainingResults(historyTrainings.filter((value, index) => index < 7))
   }, [trainingSeries, activeExercises, activeIndex])
 
   const createData = (date, training) => {

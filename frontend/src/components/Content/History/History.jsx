@@ -51,10 +51,6 @@ const History = () => {
   }, [])
 
   useEffect(() => {
-    setActiveIndex(historyTrainings.length - 1)
-  }, [loadingTrainings])
-
-  useEffect(() => {
     if (exercises) {
       if (historyTrainings.length === 0) return
       const allExercises = Object.entries(exercises).map(part => part[1]).flat()
@@ -64,8 +60,8 @@ const History = () => {
 
   function handleClick (type) {
     type === 1
-      ? activeIndex > 0 && setActiveIndex(prev => prev - 1)
-      : activeIndex < historyTrainings.length - 1 && setActiveIndex(prev => prev + 1)
+      ? activeIndex < historyTrainings.length - 1 && setActiveIndex(prev => prev + 1)
+      : activeIndex > 0 && setActiveIndex(prev => prev - 1)
   }
 
   let content = <Spinner />

@@ -17,8 +17,8 @@ import Paper from '@material-ui/core/Paper'
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
-    height: '40%',
-    minHeight: '40%',
+    height: '35%',
+    minHeight: '35%',
     display: 'flex',
     justifyContent: 'center'
   }
