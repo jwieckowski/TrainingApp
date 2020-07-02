@@ -18,6 +18,12 @@ import SettingsIcon from '@material-ui/icons/Settings'
 import ContactMailIcon from '@material-ui/icons/ContactMail'
 import InfoIcon from '@material-ui/icons/Info'
 
+import SettingsContent from './PanelContent/SettingsContent'
+import AboutContent from './PanelContent/AboutContent'
+import RecordContent from './PanelContent/RecordContent'
+import ContactContent from './PanelContent/ContactContent'
+import SmthContent from './PanelContent/SmthContent'
+
 const useStyles = makeStyles((theme) => ({
   items: {
     width: '100%'
@@ -32,27 +38,13 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-// const displayPartExercises = (exercises, clickedItem, handleClickItem) => {
-//   return exercises.map(partExercise => {
-//     return (
-//       <PartExerciseItem
-//         key={partExercise._id}
-//         exercises={exercises}
-//         partExercise={partExercise}
-//         clickedItem={clickedItem}
-//         handleClickItem={handleClickItem}
-//       />
-//     )
-//   })
-// }
-
 const PanelItem = ({ panel, clickedPanel, handlePanelClick }) => {
   const classes = useStyles()
-  const [clickedItem, setClickedItem] = useState(undefined)
   const { t } = useTranslation()
 
+  const panels = [t('more:records'), t('more:smth'), t('more:settings'), t('more:contact'), t('more:about')]
+
   const panelIcon = (panel) => {
-    const panels = [t('more:records'), t('more:smth'), t('more:settings'), t('more:contact'), t('more:about')]
     const icons = {
       0: <EmojiEventsIcon fontSize='large' />,
       1: <SaveIcon fontSize='large' />,
@@ -63,14 +55,22 @@ const PanelItem = ({ panel, clickedPanel, handlePanelClick }) => {
     return icons[panels.indexOf(panel)]
   }
 
+  const panelContent = (panel) => {
+    const contents = {
+      0: <RecordContent />,
+      1: <SmthContent />,
+      2: <SettingsContent />,
+      3: <ContactContent />,
+      4: <AboutContent />
+    }
+    return contents[panels.indexOf(panel)]
+  }
+
   return (
     <ListItem
       key={panel}
       className={classes.items}
-      onClick={() => {
-        handlePanelClick(panel)
-        setClickedItem(undefined)
-      }}
+      onClick={() => { handlePanelClick(panel) }}
     >
       <Paper
         elevation={panel === clickedPanel ? 4 : 0}
@@ -94,7 +94,7 @@ const PanelItem = ({ panel, clickedPanel, handlePanelClick }) => {
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <List className={classes.exercisesList}>
-              {/* {displayPartExercises(partExercise, clickedItem, handleClickItem)} */}
+              {panelContent(panel)}
             </List>
           </ExpansionPanelDetails>
         </ExpansionPanel>

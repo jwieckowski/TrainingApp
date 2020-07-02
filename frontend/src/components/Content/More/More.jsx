@@ -15,9 +15,6 @@ const useStyles = makeStyles((theme) => ({
     overflow: 'auto',
     height: '100%',
     maxHeight: '100%'
-    // display: 'flex',
-    // justifyContent: 'space-around',
-    // flexDirection: 'column'
   }
 }))
 
