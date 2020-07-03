@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles'
-import { useTranslation } from 'react-i18next'
 
 import { addTrainingSeries, startTraining } from '@data/actions/trainingActions.js'
+import { loadRecords, addRecord } from '@data/actions/recordsActions.js'
 
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
@@ -59,17 +59,36 @@ const TrainingContent = ({ trainingExercises }) => {
   const classes = useStyles()
   const dispatch = useDispatch()
 
+  const { records } = useSelector(state => state.records)
   const { trainingActive } = useSelector(state => state.training)
 
   const [form, setForm] = useState(initialForm)
   const [activeIndex, setActiveIndex] = useState(0)
 
-  function addSeries (seriesForm) {
+  useEffect(() => { dispatch(loadRecords()) }, [])
+
+  function checkIfRecord (currentRecords, seriesForm) {
+    parseFloat(currentRecords.max[0]) < seriesForm.weight && dispatch(addRecord({ _id: currentRecords._id, max: [seriesForm.weight, seriesForm.reps], weight: currentRecords.weight }))
+    parseFloat(currentRecords.weight[0] * currentRecords.weight[1]) < seriesForm.weight * seriesForm.reps && dispatch(addRecord({ _id: currentRecords._id, max: currentRecords.max, weight: [seriesForm.weight, seriesForm.reps] }))
+  }
+
+  function addNewRecord (seriesForm) {
+    const currentRecords = records.filter(r => r._id === trainingExercises[activeIndex]._id)
+    currentRecords.length === 0
+      ? dispatch(addRecord({ _id: trainingExercises[activeIndex]._id, max: [seriesForm.weight, seriesForm.reps], weight: [seriesForm.weight, seriesForm.reps] }))
+      : checkIfRecord(currentRecords[0], seriesForm)
+  }
+
+  function addNewSeries (seriesForm) {
     setForm({ ...form, weightReps: [...form.weightReps, [seriesForm.weight, seriesForm.reps]] })
     !trainingActive && dispatch(startTraining())
     dispatch(addTrainingSeries(seriesForm.weight, seriesForm.reps, activeIndex))
   }
 
+  function addSeries (seriesForm) {
+    addNewSeries(seriesForm)
+    addNewRecord(seriesForm)
+  }
   function handleClick (event, seriesForm) {
     event.stopPropagation()
     seriesForm.weight !== 0 && seriesForm.reps !== 0

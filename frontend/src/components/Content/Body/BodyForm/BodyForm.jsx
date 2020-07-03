@@ -76,6 +76,7 @@ const BodyTable = () => {
             label={`${t('body:weight')} kg`}
             type='Number'
             value={form.weight}
+            InputProps={{ inputProps: { step: 0.1 } }}
             variant='outlined'
             onChange={handleChange}
           />
@@ -85,6 +86,7 @@ const BodyTable = () => {
             label={t('body:bmi')}
             type='Number'
             value={form.bmi}
+            InputProps={{ inputProps: { step: 0.1 } }}
             variant='outlined'
             onChange={handleChange}
           />
@@ -96,6 +98,7 @@ const BodyTable = () => {
             label={`${t('body:fat')} %`}
             type='Number'
             value={form.fat}
+            InputProps={{ inputProps: { step: 0.1 } }}
             variant='outlined'
             onChange={handleChange}
           />
@@ -105,6 +108,7 @@ const BodyTable = () => {
             label={`${t('body:muscle')} %`}
             type='Number'
             value={form.muscle}
+            InputProps={{ inputProps: { step: 0.1 } }}
             variant='outlined'
             onChange={handleChange}
           />

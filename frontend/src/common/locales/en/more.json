@@ -3,5 +3,13 @@
     "smth": "Something more",
     "settings": "Settings",
     "contact": "Contact",
-    "about": "About"
+    "about": "About",
+    "lang": "Language selection",
+    "clear": "Clear stored data",
+    "download": "Download training data",
+    "app-made": "Application was made with usage of Node.js and its' frameworks: React + Redux, Fastify and MongoDB",
+    "app-action": "Application provides access to store training data, create training routines and analyze obtained results",
+    "app-desc": "It's usefull and it doesn't require to make any payments for full functionality",
+    "record-max": "Max",
+    "record-weight": "Weight"
 }

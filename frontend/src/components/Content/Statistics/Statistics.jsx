@@ -92,7 +92,7 @@ const Statistics = () => {
     const partData = timeData.map(t => getPartExercisesSeries(t, exercises, filters[2][0], filters[3][0]))
     setDataStat(partData.map(training => {
       return training.length !== 0
-        ? filters[1][0] === 'Weight' ? calculateTrainingWeight(training) : calculateTrainingReps(training)
+        ? filters[1][0] === t('statistics:weight') ? calculateTrainingWeight(training) : calculateTrainingReps(training)
         : []
     }))
   }, [historyTrainings, filters])

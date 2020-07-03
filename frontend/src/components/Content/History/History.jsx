@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next'
 
 import { loadTrainings } from '@data/actions/trainingActions.js'
 import { loadExercises } from '@data/actions/exercisesActions.js'
+import { loadRecords } from '@data/actions/recordsActions.js'
 
 import { Grid, Typography } from '@material-ui/core'
 import HistoryBar from './HistoryBar'
@@ -44,10 +45,12 @@ const History = () => {
   const [trainingExercises, setTrainingExercises] = useState([])
   const { historyTrainings, loadingTrainings, loadError } = useSelector(state => state.training)
   const { exercises, loadingExercises } = useSelector(state => state.exercises)
+  const { records, loadingRecords } = useSelector(state => state.records)
 
   useEffect(() => {
     dispatch(loadTrainings())
     dispatch(loadExercises())
+    dispatch(loadRecords())
   }, [])
 
   useEffect(() => {
@@ -65,7 +68,7 @@ const History = () => {
   }
 
   let content = <Spinner />
-  if (!loadingTrainings) {
+  if (!loadingTrainings && !loadingRecords) {
     if (!loadError) {
       content = (
         <Grid container maxwidth='xs' className={classes.root}>
@@ -79,6 +82,7 @@ const History = () => {
               <HistoryContent
                 trainingExercises={trainingExercises}
                 historyTraining={historyTrainings[activeIndex]}
+                records={records}
               />
             </>
             : <Grid className={classes.label}>

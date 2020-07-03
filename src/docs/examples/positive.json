@@ -55,5 +55,575 @@
         }
       ]
     }
+  },
+  "records-get-200": {
+    "summary": "positive",
+    "value": {
+      "records": [
+        {
+          "_id": 1,
+          "max": [100, 1],
+          "weight": [80, 10]
+        },
+        {
+          "_id": 22,
+          "max": [18, 7],
+          "weight": [12, 20]
+        },
+        {
+          "_id": 34,
+          "max": [140, 2],
+          "weight": [100, 8]
+        },
+        {
+          "_id": 76,
+          "max": [20, 10],
+          "weight": [14, 18]
+        }
+      ]
+    }
+  },
+  "training-get-200": {
+    "summary": "positive",
+    "value": {
+      "training": [
+        {
+         "_id": 1,
+         "date": "Fri Jul 03 2020 12:14:04 GMT+0200 (czas środkowoeuropejski letni)",
+         "activeExercises": [0, 1, 2, 4, 3],
+         "traininSeries": [[[10, 5], [10, 5], [10, 5]], [[32, 6], [32, 6]], [[100, 10], [100, 10], [100, 10], [100, 10]], [[40, 2], [40, 2]], [[15, 10], [15, 10], [15, 10]]],
+         "routine": "User Routine 1",
+         "routineExercises": [60, 1, 15, 22, 38]
+        }
+      ]
+    }
+  },
+  "favorite-get-200": {
+    "summary": "positive",
+    "value": {
+      "training": [1, 2, 20, 33, 48]
+    }
+  },
+  "exercises-get-200": {
+    "summary": "positive",
+    "value": {
+      "exercises": [
+        {
+          "_id": 1,
+          "name": "Barbell Bench Press",
+          "type": "Chest"
+        },
+        {
+          "_id": 2,
+          "name": "Incline Barbell Bench Press",
+          "type": "Chest"
+        },
+        {
+          "_id": 3,
+          "name": "Decline Barbell Bench Press",
+          "type": "Chest"
+        },
+        {
+          "_id": 4,
+          "name": "Dumbbell Bench Press",
+          "type": "Chest"
+        },
+        {
+          "_id": 5,
+          "name": "Incline Dumbbell Bench Press",
+          "type": "Chest"
+        },
+        {
+          "_id": 6,
+          "name": "Decline Dumbbell Bench Press",
+          "type": "Chest"
+        },
+        {
+          "_id": 7,
+          "name": "Weighted Dips",
+          "type": "Chest"
+        },
+        {
+          "_id": 8,
+          "name": "Landmine Press",
+          "type": "Chest"
+        },
+        {
+          "_id": 9,
+          "name": "Weighted Pushup",
+          "type": "Chest"
+        },
+        {
+          "_id": 10,
+          "name": "Smith Machine Bench Press",
+          "type": "Chest"
+        },
+        {
+          "_id": 11,
+          "name": "Dumbbell Pullovers",
+          "type": "Chest"
+        },
+        {
+          "_id": 12,
+          "name": "Dumbbell Butterfly",
+          "type": "Chest"
+        },
+        {
+          "_id": 13,
+          "name": "Machine Butterfly",
+          "type": "Chest"
+        },
+        {
+          "_id": 14,
+          "name": "Cable Crossovers",
+          "type": "Chest"
+        },
+        {
+          "_id": 15,
+          "name": "Cable Chest Press",
+          "type": "Chest"
+        },
+        {
+          "_id": 16,
+          "name": "Bench Cable Butterfly",
+          "type": "Chest"
+        },
+        {
+          "_id": 17,
+          "name": "Cable Iron Cross",
+          "type": "Chest"
+        },
+        {
+          "_id": 18,
+          "name": "One-Arm Dumbbell Row",
+          "type": "Back"
+        },
+        {
+          "_id": 19,
+          "name": "Barbell Row",
+          "type": "Back"
+        },
+        {
+          "_id": 20,
+          "name": "T-Bar Row",
+          "type": "Back"
+        },
+        {
+          "_id": 21,
+          "name": "Seated Cable Row",
+          "type": "Back"
+        },
+        {
+          "_id": 22,
+          "name": "Deadlift",
+          "type": "Back"
+        },
+        {
+          "_id": 23,
+          "name": "Lat Machine Pulldown",
+          "type": "Back"
+        },
+        {
+          "_id": 24,
+          "name": "Lat Machine Pulldown Reverse Grip",
+          "type": "Back"
+        },
+        {
+          "_id": 25,
+          "name": "Prone Row",
+          "type": "Back"
+        },
+        {
+          "_id": 26,
+          "name": "Standing Cable Row",
+          "type": "Back"
+        },
+        {
+          "_id": 27,
+          "name": "Dumbbell Shrugs",
+          "type": "Back"
+        },
+        {
+          "_id": 28,
+          "name": "Barbell Shrugs",
+          "type": "Back"
+        },
+        {
+          "_id": 29,
+          "name": "Pullups",
+          "type": "Back"
+        },
+        {
+          "_id": 30,
+          "name": "Wide Grip Pulldown",
+          "type": "Back"
+        },
+        {
+          "_id": 31,
+          "name": "Sumo Deadlift",
+          "type": "Back"
+        },
+        {
+          "_id": 32,
+          "name": "Back Extension",
+          "type": "Back"
+        },
+        {
+          "_id": 33,
+          "name": "Rack Pull",
+          "type": "Back"
+        },
+        {
+          "_id": 34,
+          "name": "Straight Arm Pulldown",
+          "type": "Back"
+        },
+        {
+          "_id": 35,
+          "name": "Barbell Bulgarian Squat",
+          "type": "Leg"
+        },
+        {
+          "_id": 36,
+          "name": "Romanian Deaadlift",
+          "type": "Leg"
+        },
+        {
+          "_id": 37,
+          "name": "Dumbbell Squat",
+          "type": "Leg"
+        },
+        {
+          "_id": 38,
+          "name": "Pistol Squat",
+          "type": "Leg"
+        },
+        {
+          "_id": 39,
+          "name": "Hip Thrust",
+          "type": "Leg"
+        },
+        {
+          "_id": 40,
+          "name": "Leg Curl",
+          "type": "Leg"
+        },
+        {
+          "_id": 41,
+          "name": "Leg Extension",
+          "type": "Leg"
+        },
+        {
+          "_id": 42,
+          "name": "Farmer's Carry",
+          "type": "Leg"
+        },
+        {
+          "_id": 43,
+          "name": "Sumo Squat",
+          "type": "Leg"
+        },
+        {
+          "_id": 44,
+          "name": "Hack Squat",
+          "type": "Leg"
+        },
+        {
+          "_id": 45,
+          "name": "Box Jump",
+          "type": "Leg"
+        },
+        {
+          "_id": 46,
+          "name": "Box Squat",
+          "type": "Leg"
+        },
+        {
+          "_id": 47,
+          "name": "Narrow Hack Squat",
+          "type": "Leg"
+        },
+        {
+          "_id": 48,
+          "name": "Front Squat",
+          "type": "Leg"
+        },
+        {
+          "_id": 49,
+          "name": "Stable Cable Hamstring Curl",
+          "type": "Leg"
+        },
+        {
+          "_id": 50,
+          "name": "Dumbbell Step Up",
+          "type": "Leg"
+        },
+        {
+          "_id": 51,
+          "name": "Machine Abductor",
+          "type": "Leg"
+        },
+        {
+          "_id": 52,
+          "name": "Machine Adductor",
+          "type": "Leg"
+        },
+        {
+          "_id": 53,
+          "name": "Machine Smith Calf Raises",
+          "type": "Calf"
+        },
+        {
+          "_id": 54,
+          "name": "Barbell Calf Raises",
+          "type": "Calf"
+        },
+        {
+          "_id": 55,
+          "name": "Dumbbell Calf Raises",
+          "type": "Calf"
+        },
+        {
+          "_id": 56,
+          "name": "Sitting Calf Raises",
+          "type": "Calf"
+        },
+        {
+          "_id": 57,
+          "name": "Overhead Barbell Press",
+          "type": "Shoulders"
+        },
+        {
+          "_id": 58,
+          "name": "Overhead Dumbbell Press",
+          "type": "Shoulders"
+        },
+        {
+          "_id": 59,
+          "name": "Arnold Press",
+          "type": "Shoulders"
+        },
+        {
+          "_id": 60,
+          "name": "Front Raise",
+          "type": "Shoulders"
+        },
+        {
+          "_id": 61,
+          "name": "Dumbbell Reverse Fly",
+          "type": "Shoulders"
+        },
+        {
+          "_id": 62,
+          "name": "Upright Row",
+          "type": "Shoulders"
+        },
+        {
+          "_id": 63,
+          "name": "Shoulder Pushup",
+          "type": "Shoulders"
+        },
+        {
+          "_id": 64,
+          "name": "Dumbbell Lateral Raise",
+          "type": "Shoulders"
+        },
+        {
+          "_id": 65,
+          "name": "Cable Lateral Raise",
+          "type": "Shoulders"
+        },
+        {
+          "_id": 66,
+          "name": "Face Pull",
+          "type": "Shoulders"
+        },
+        {
+          "_id": 67,
+          "name": "Rear Delt Machine",
+          "type": "Shoulders"
+        },
+        {
+          "_id": 68,
+          "name": "Cable Triceps Extension",
+          "type": "Triceps"
+        },
+        {
+          "_id": 69,
+          "name": "Single Arm Triceps Extension",
+          "type": "Triceps"
+        },
+        {
+          "_id": 70,
+          "name": "French Press",
+          "type": "Triceps"
+        },
+        {
+          "_id": 71,
+          "name": "One Arm Dumbbell Press",
+          "type": "Triceps"
+        },
+        {
+          "_id": 72,
+          "name": "Triceps Dips",
+          "type": "Triceps"
+        },
+        {
+          "_id": 73,
+          "name": "Close Grip Barbell Press",
+          "type": "Triceps"
+        },
+        {
+          "_id": 74,
+          "name": "Close Grip Dumbbell Press",
+          "type": "Triceps"
+        },
+        {
+          "_id": 75,
+          "name": "Bench Press",
+          "type": "Triceps"
+        },
+        {
+          "_id": 76,
+          "name": "Triceps Cable Overhead Extension",
+          "type": "Triceps"
+        },
+        {
+          "_id": 77,
+          "name": "Triceps Dumbbell Overhead Extension",
+          "type": "Triceps"
+        },
+        {
+          "_id": 78,
+          "name": "Band Triceps Extension",
+          "type": "Triceps"
+        },
+        {
+          "_id": 79,
+          "name": "Barbell Curl",
+          "type": "Biceps"
+        },
+        {
+          "_id": 80,
+          "name": "Dumbbell Curl",
+          "type": "Biceps"
+        },
+        {
+          "_id": 81,
+          "name": "Band Curl",
+          "type": "Biceps"
+        },
+        {
+          "_id": 82,
+          "name": "Bayesian Curl",
+          "type": "Biceps"
+        },
+        {
+          "_id": 83,
+          "name": "Cable Curl",
+          "type": "Biceps"
+        },
+        {
+          "_id": 84,
+          "name": "Machine Curl",
+          "type": "Biceps"
+        },
+        {
+          "_id": 85,
+          "name": "Preacher Curl",
+          "type": "Biceps"
+        },
+        {
+          "_id": 86,
+          "name": "Cable Bending Arms Curl",
+          "type": "Biceps"
+        },
+        {
+          "_id": 87,
+          "name": "Chin-ups",
+          "type": "Biceps"
+        },
+        {
+          "_id": 88,
+          "name": "Sit-up",
+          "type": "Abs"
+        },
+        {
+          "_id": 89,
+          "name": "Side Bends",
+          "type": "Abs"
+        },
+        {
+          "_id": 90,
+          "name": "Straight Leg Raise",
+          "type": "Abs"
+        },
+        {
+          "_id": 91,
+          "name": "Knee Raise",
+          "type": "Abs"
+        },
+        {
+          "_id": 92,
+          "name": "Ball Crunch",
+          "type": "Abs"
+        },
+        {
+          "_id": 93,
+          "name": "Decline Sit-up",
+          "type": "Abs"
+        },
+        {
+          "_id": 94,
+          "name": "Machine Crunch",
+          "type": "Abs"
+        },
+        {
+          "_id": 95,
+          "name": "Cable Crunch",
+          "type": "Abs"
+        },
+        {
+          "_id": 96,
+          "name": "Plank",
+          "type": "Abs"
+        },
+        {
+          "_id": 97,
+          "name": "Side Plank",
+          "type": "Abs"
+        },
+        {
+          "_id": 98,
+          "name": "Mountain Climber",
+          "type": "Abs"
+        },
+        {
+          "_id": 99,
+          "name": "Roll-out",
+          "type": "Abs"
+        },
+        {
+          "_id": 100,
+          "name": "Flutter kicks",
+          "type": "Abs"
+        },
+        {
+          "_id": 101,
+          "name": "Hollow Body",
+          "type": "Abs"
+        },
+        {
+          "_id": 102,
+          "name": "Rainbow Slider",
+          "type": "Abs"
+        },
+        {
+          "_id": 103,
+          "name": "L-sit",
+          "type": "Abs"
+        }
+      ]
+    }
   }
 }

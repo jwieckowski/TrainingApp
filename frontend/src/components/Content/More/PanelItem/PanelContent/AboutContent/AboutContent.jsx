@@ -30,17 +30,17 @@ const AboutContent = () => {
     <Box className={classes.content}>
       <Box className={classes.items}>
         <Typography>
-          Application was made with usage of Node.js and its&apos; frameworks: React + Redux, Fastify and MongoDB
+          {t('more:app-made')}
         </Typography>
       </Box>
       <Box className={classes.items}>
         <Typography>
-          Application provides access to store training data, create training routines and analyze obtained results
+          {t('more:app-action')}
         </Typography>
       </Box>
       <Box className={classes.items}>
         <Typography>
-          It&apos;s usefull and it doesn&apos;t require to make any payments for full functionality
+          {t('more:app-desc')}
         </Typography>
       </Box>
     </Box>

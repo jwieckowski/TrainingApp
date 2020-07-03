@@ -65,19 +65,19 @@ const TrainingForm = ({ handleClick, activeIndex }) => {
   }, [trainingSeries, activeIndex, historyTrainings])
 
   function handleChange (event) {
-    setSeriesForm({ ...seriesForm, [event.target.name]: parseInt(event.target.value) })
+    setSeriesForm({ ...seriesForm, [event.target.name]: parseFloat(event.target.value) })
   }
 
   function increaseValue (number) {
     number === 1
-      ? setSeriesForm({ ...seriesForm, weight: parseInt(seriesForm.weight) + 1 })
-      : setSeriesForm({ ...seriesForm, reps: parseInt(seriesForm.reps) + 1 })
+      ? setSeriesForm({ ...seriesForm, weight: parseFloat(seriesForm.weight) + 0.5 })
+      : setSeriesForm({ ...seriesForm, reps: parseFloat(seriesForm.reps) + 1 })
   }
 
   function decreaseValue (number) {
     number === 1
-      ? seriesForm.weight !== 0 && setSeriesForm({ ...seriesForm, weight: parseInt(seriesForm.weight) - 1 })
-      : seriesForm.reps !== 0 && setSeriesForm({ ...seriesForm, reps: parseInt(seriesForm.reps) - 1 })
+      ? seriesForm.weight !== 0 && setSeriesForm({ ...seriesForm, weight: parseFloat(seriesForm.weight) - 0.5 })
+      : seriesForm.reps !== 0 && setSeriesForm({ ...seriesForm, reps: parseFloat(seriesForm.reps) - 1 })
   }
 
   return (

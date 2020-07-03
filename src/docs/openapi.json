@@ -19,6 +19,15 @@
       "BodyDataGet200": {
         "$ref": "schemas/body-data-get-200.json"
       },
+      "ExercisesDataGet200": {
+        "$ref": "schemas/exercises-get-200.json"
+      },
+      "RecordsDataGet200": {
+        "$ref": "schemas/records-get-200.json"
+      },
+      "TrainingDataGet200": {
+        "$ref": "schemas/training-get-200.json"
+      },
       "GenericError": {
         "$ref": "schemas/generic-error.json"
       }
@@ -81,6 +90,34 @@
         }
       }
     },
+    "/api/v1/routines/:id": {
+      "post": {
+        "summary": "Endpoint to add user routine",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "schemas/routine-add-body.json"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Endpoint to delete user routine",
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "schemas/id.json"
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/body": {
       "get": {
         "summary": "Endpoint with all user body data measures",
@@ -94,6 +131,163 @@
                 "examples": {
                   "positive": {
                     "$ref": "examples/positive.json#/body-data-get-200"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/body/:id": {
+      "post": {
+        "summary": "Endpoint to add user body measures",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "schemas/body-data-add-body.json"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/records": {
+      "get": {
+        "summary": "Endpoint with all user records",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schemas/records-get-200.json"
+                },
+                "examples": {
+                  "positive": {
+                    "$ref": "examples/positive.json#/records-get-200"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/records/:id": {
+      "post": {
+        "summary": "Endpoint to add user records",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "schemas/records-body-data.json"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/training": {
+      "get": {
+        "summary": "Endpoint with active users' training data",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schemas/training-get-200.json"
+                },
+                "examples": {
+                  "positive": {
+                    "$ref": "examples/positive.json#/training-get-200"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/training/:id": {
+      "post": {
+        "summary": "Endpoint to add user training",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "schemas/training-add-body.json"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/favorite": {
+      "get": {
+        "summary": "Endpoint with all user favorites exercises",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schemas/body-data-get-200.json"
+                },
+                "examples": {
+                  "positive": {
+                    "$ref": "examples/positive.json#/favorite-get-200"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/favorite/:id": {
+      "post": {
+        "summary": "Endpoint to add user favorite exercises",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "schemas/id.json"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Endpoint to delete favorite exercise",
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "schemas/id.json"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/exercises": {
+      "get": {
+        "summary": "Endpoint with all exercises",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schemas/exercises-get-200.json"
+                },
+                "examples": {
+                  "positive": {
+                    "$ref": "examples/positive.json#/exercises-get-200"
                   }
                 }
               }

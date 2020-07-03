@@ -1,0 +1,10 @@
+{
+    "$id": "records-get-200.json",
+    "title": "Records data",
+    "description": "User training records",
+    "type": "array",
+    "items": {
+      "$ref": "record-body-data.json"
+    }
+  }
+  

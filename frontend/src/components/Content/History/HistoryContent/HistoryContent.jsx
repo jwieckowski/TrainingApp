@@ -33,10 +33,19 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-const HistoryContent = ({ trainingExercises, historyTraining }) => {
+const HistoryContent = ({ trainingExercises, historyTraining, records }) => {
   const classes = useStyles()
 
   const formatTraining = (training) => training && training.length !== 0 && training.map(series => series.join('x')).join(', ')
+  const formatRecord = (record) => record && record.length !== 0 && record.join('x')
+
+  const checkRecord = (records, exercise, index) => {
+    const currentRecords = records.filter(r => r._id === exercise._id)
+    if (currentRecords === undefined || currentRecords.length === 0) return
+
+    const training = formatTraining(historyTraining.trainingSeries[historyTraining.activeExercises[index]])
+    return training.includes(formatRecord(currentRecords[0].max)) || training.includes(formatRecord(currentRecords[0].weight))
+  }
 
   return (
     <Grid container maxwidth='xs' className={classes.root}>
@@ -57,12 +66,12 @@ const HistoryContent = ({ trainingExercises, historyTraining }) => {
                     </Typography>
                   }
                 />
-                {/* {
-                  records[mockExercises.indexOf(exercise)] &&
+                {
+                  checkRecord(records, exercise, index) &&
                     <IconButton className={classes.recordIcon}>
                       <EmojiEventsIcon fontSize='large' />
                     </IconButton>
-                } */}
+                }
               </Paper>
             </ListItem>
           )

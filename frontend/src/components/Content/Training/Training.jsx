@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles'
-import { useTranslation } from 'react-i18next'
 
 import { loadExercises } from '@data/actions/exercisesActions.js'
 
@@ -39,8 +37,6 @@ const useStyles = makeStyles((theme) => ({
 const Exercises = () => {
   const classes = useStyles()
   const dispatch = useDispatch()
-  const { t } = useTranslation()
-  const history = useHistory()
 
   const [trainingExercises, setTrainingExercises] = useState(undefined)
   const { exercises, loadingExercises, loadError } = useSelector(state => state.exercises)
@@ -61,7 +57,7 @@ const Exercises = () => {
   let content = <Spinner />
 
   if (!loadingExercises) {
-    if (!loadError) {
+    if (!loadError && routineID !== undefined) {
       content = (
         <Grid className={classes.root}>
           <InfoBar className={classes.infoBar} />

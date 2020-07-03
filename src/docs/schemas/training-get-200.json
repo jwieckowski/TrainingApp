@@ -1,0 +1,10 @@
+{
+    "$id": "training-get-200.json",
+    "title": "User training data",
+    "description": "Active training user data",
+    "type": "array",
+    "items": {
+      "$ref": "training-add-body.json"
+    }
+}
+  

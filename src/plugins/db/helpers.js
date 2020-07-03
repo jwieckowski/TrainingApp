@@ -39,10 +39,19 @@ const defineRoutine = async (db, mongo, routine) => {
   return res
 }
 
+const defineRecord = async (db, mongo, record) => {
+  const records = await db.getRecords(mongo)
+  const res = await records.filter(r => r._id === record._id).length === 0
+    ? db.addRecord(mongo, record)
+    : db.updateRecord(mongo, record)
+  return res
+}
+
 module.exports = {
   defineBodyData,
   sortBodyData,
   splitPartGroups,
   joinFavoriteExercises,
-  defineRoutine
+  defineRoutine,
+  defineRecord
 }

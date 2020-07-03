@@ -37,7 +37,7 @@ const SettingsContent = () => {
           <LanguageIcon fontSize='large' />
         </IconButton>
         <Typography>
-          Language selection
+          {t('more:lang')}
         </Typography>
       </Box>
       <Box className={classes.items}>
@@ -45,7 +45,7 @@ const SettingsContent = () => {
           <DeleteIcon fontSize='large' />
         </IconButton>
         <Typography>
-          Clear stored data
+          {t('more:clear')}
         </Typography>
       </Box>
       <Box className={classes.items}>
@@ -53,7 +53,7 @@ const SettingsContent = () => {
           <FileCopyIcon fontSize='large' />
         </IconButton>
         <Typography>
-          Download training data
+          {t('more:download')}
         </Typography>
       </Box>
     </Box>

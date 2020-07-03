@@ -7,6 +7,7 @@ import exercises from '@data/reducers/exercises.js'
 import favoriteExercises from '@data/reducers/favoriteExercises.js'
 import training from '@data/reducers/training.js'
 import calendar from '@data/reducers/calendar.js'
+import records from '@data/reducers/records.js'
 
 export default combineReducers({
   routines,
@@ -14,5 +15,6 @@ export default combineReducers({
   exercises,
   favoriteExercises,
   training,
-  calendar
+  calendar,
+  records
 })

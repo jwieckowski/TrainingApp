@@ -1,0 +1,40 @@
+{
+    "title": "Training data add body request",
+    "$id": "training-add-body.json",
+    "type": "object",
+    "properties": {
+      "_id": {
+        "$ref": "id.json"
+      },
+      "date": {
+        
+      },
+      "activeExercises": {
+        "type": "array",
+        "example": [0, 3, 1, 2]
+      },
+      "trainingSeries": {
+        "type": "array",
+        "example": [[[10, 1], [10, 1]],[[20, 5], [20, 5]], [[30, 12]], [[100, 10], [100, 10]]]
+      },
+      "routine": {
+        "type": "string",
+        "example": "User routine 1"
+      },
+      "routineExercises": {
+        "type": "array",
+        "items": {
+          "$ref": "id.json"
+        },
+        "example": [1, 20, 33, 44, 10]
+      }
+    },
+    "required": [
+      "_id",
+      "date",
+      "activeExercises",
+      "trainingSeries",
+      "routine",
+      "routineExercises"
+    ]
+  }

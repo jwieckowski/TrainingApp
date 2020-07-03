@@ -3,5 +3,13 @@
     "smth": "Coś jeszcze",
     "settings": "Ustawienia",
     "contact": "Kontakt",
-    "about": "O stronie"
+    "about": "O stronie",
+    "lang": "Wybór języka",
+    "clear": "Wyczyść dane",
+    "download": "Pobierz dane treningowe",
+    "app-made": "Aplikacja została stworzona przy użyciu Node.js i frameworków React + Redux, Fastify i MongoDB",
+    "app-action": "Aplikacja umożliwia przechowywanie danych treningowych, tworzenie rutyn oraz analizowanie uzyskanych wyników",
+    "app-desc": "Jest użyteczna i nie wymaga dodatkowych płatności do korzystania z pełnej funkcjonalności",
+    "record-max": "Max",
+    "record-weight": "Ciężar"
 }

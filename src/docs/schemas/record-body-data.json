@@ -1,0 +1,23 @@
+{
+    "title": "Record body request",
+    "$id": "record-body-data.json",
+    "type": "object",
+    "properties": {
+      "_id": {
+        "$ref": "id.json"
+      },
+      "max": {
+        "type": "array",
+        "example": [100, 1]
+      },
+      "weight": {
+        "type": "array",
+        "example": [80, 10]
+      }
+    },
+    "required": [
+      "_id",
+      "max",
+      "weight"
+    ]
+}
