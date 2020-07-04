@@ -4,6 +4,8 @@
     "bmi": "BMI",
     "fat": "Tłuszcz",
     "muscle": "Mięśnie",
-    "date": "Data"
+    "date": "Data",
+    "wrong-form": "Nie wszystkie pola zostały wypełnione",
+    "add-fail": "Dane pomiaru nie mogą zostać dodane"
 }
   

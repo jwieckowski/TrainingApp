@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles'
 import { useTranslation } from 'react-i18next'
+import { useSnackbar } from 'notistack'
 import { addBodyData, updateBodyData } from '@data/actions/bodyActions.js'
 
 import Paper from '@material-ui/core/Paper'
@@ -35,8 +36,9 @@ const BodyTable = () => {
   const classes = useStyles()
   const dispatch = useDispatch()
   const { t } = useTranslation()
+  const { enqueueSnackbar } = useSnackbar()
 
-  const { bodyData, clickedItem } = useSelector(state => state.body)
+  const { bodyData, addError, clickedItem } = useSelector(state => state.body)
   const [id, setID] = useState(bodyData.length + 1)
   const [form, setForm] = useState({})
 
@@ -50,6 +52,13 @@ const BodyTable = () => {
     })
   }, [bodyData, clickedItem])
 
+  useEffect(() => {
+    addError &&
+    enqueueSnackbar(t('body:add-fail'), {
+      variant: 'error'
+    })
+  }, [addError])
+
   function handleChange (event) {
     setForm({ ...form, [event.target.name]: event.target.value })
   }
@@ -60,7 +69,9 @@ const BodyTable = () => {
       ...form
     }
     Object.entries(form).find(([key, value]) => value === undefined)
-      ? console.log('snackbar')
+      ? enqueueSnackbar(t('body:wrong-form'), {
+        variant: 'warning'
+      })
       : clickedItem === undefined
         ? dispatch(addBodyData(data))
         : dispatch(updateBodyData(data))

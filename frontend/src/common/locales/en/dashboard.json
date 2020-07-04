@@ -11,5 +11,7 @@
   "add-cancel": "Cancel",
   "add-confirm": "Add",
   "something-went-wrong": "Something went wrong...",
-  "refresh": "REFRESH"
+  "refresh": "REFRESH",
+  "add-fail": "Cannot add new routine",
+  "remove-fail": "Cannot remove routine"
 }

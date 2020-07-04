@@ -11,5 +11,7 @@
   "add-cancel": "Anuluj",
   "add-confirm": "Dodaj",
   "something-went-wrong": "Coś poszło nie tak...",
-  "refresh": "ODŚWIEŻ"
+  "refresh": "ODŚWIEŻ",
+  "add-fail": "Nie można dodać nowej rutyny",
+  "remove-fail": "Nie można usunąć rutyny"
 }

@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles'
 import { addRoutine } from '@data/actions/routinesActions.js'
 import { useTranslation } from 'react-i18next'
+import { useSnackbar } from 'notistack'
+
 import TextField from '@material-ui/core/TextField'
 import Box from '@material-ui/core/Box'
 import FormControl from '@material-ui/core/FormControl'
@@ -32,14 +34,22 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-export default function PinnedSubheaderList ({ active, handleClose }) {
+function RoutineForm ({ active, handleClose }) {
   const classes = useStyles()
   const dispatch = useDispatch()
   const { t } = useTranslation()
+  const { enqueueSnackbar } = useSnackbar()
 
-  const { routines } = useSelector(state => state.routines)
+  const { routines, addError } = useSelector(state => state.routines)
   const [id, setID] = useState(routines.length + 1)
+
   useEffect(() => { setID(routines.length + 1) }, [routines])
+  useEffect(() => {
+    addError &&
+    enqueueSnackbar(t('dashboard:add-fail'), {
+      variant: 'error'
+    })
+  }, [addError])
 
   const [values, setValues] = useState({
     _id: id,
@@ -124,3 +134,5 @@ export default function PinnedSubheaderList ({ active, handleClose }) {
     </Dialog>
   )
 }
+
+export default RoutineForm

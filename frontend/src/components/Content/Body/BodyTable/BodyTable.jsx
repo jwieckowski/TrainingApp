@@ -26,7 +26,6 @@ const useStyles = makeStyles((theme) => ({
     maxHeight: '60%'
   },
   column: {
-    // minWidth: '100px',
     width: '12.5vw'
   }
 }))

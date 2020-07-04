@@ -1,16 +1,5 @@
 import actionTypes from '@constants/actionTypes'
 
-/*
-mockInitialState = {
-  trainingSeries: [[[40, 3], [40, 3], [40, 3], [40, 4]],
-                   [[25, 10]],
-                   [[100, 5], [100, 5]],
-                   [[30, 15], [30, 15], [30, 15]]]
-  activeExercises: [1, 4, 3, 5] // exercises in which user provides inputs for series
-  addError: undefined
-}
-*/
-
 const initialState = {
   date: new Date(),
   activeExercises: [], // store ids of exercises

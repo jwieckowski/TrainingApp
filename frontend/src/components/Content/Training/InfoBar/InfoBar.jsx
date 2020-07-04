@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles'
 import { useTranslation } from 'react-i18next'
-
+import { useSnackbar } from 'notistack'
 import { addTraining, startTraining, endTraining } from '@data/actions/trainingActions.js'
 
 import Grid from '@material-ui/core/Grid'
@@ -36,11 +36,12 @@ const InfoBar = () => {
   const classes = useStyles()
   const dispatch = useDispatch()
   const { t } = useTranslation()
+  const { enqueueSnackbar } = useSnackbar()
 
   const [trainingTime, setTrainingTime] = useState(1)
   const [started, setStarted] = useState(false)
 
-  const { date, trainingSeries, activeExercises, trainingActive, historyTrainings } = useSelector(state => state.training)
+  const { date, trainingSeries, activeExercises, trainingActive, historyTrainings, addError } = useSelector(state => state.training)
   const { routines, routineID } = useSelector(state => state.routines)
 
   const getRoutine = () => routines && routines.filter(routine => routine._id === routineID)[0]
@@ -51,6 +52,14 @@ const InfoBar = () => {
     }, 60000)
     return interval
   }
+
+  useEffect(() => {
+    addError &&
+    enqueueSnackbar(t('training:add-fail'), {
+      variant: 'error'
+    })
+  }, [addError])
+
   useEffect(() => {
     setStarted(trainingActive)
     const interval = trainingActive

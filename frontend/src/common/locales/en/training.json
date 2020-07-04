@@ -6,5 +6,6 @@
     "edit-training": "EDIT",
     "weight" : "Weight",
     "reps": "Reps",
-    "no-trainings": "No recorded trainings..."
+    "no-trainings": "No recorded trainings...",
+    "add-fail": "Error during saving training"
 }

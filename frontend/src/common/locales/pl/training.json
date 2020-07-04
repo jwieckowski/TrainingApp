@@ -6,5 +6,6 @@
     "edit-training": "EDYCJA",
     "weight" : "Ciężar",
     "reps": "Powtórzenia",
-    "no-trainings": "Brak zarejetrowanych treningów..."
+    "no-trainings": "Brak zarejetrowanych treningów...",
+    "add-fail": "Błąd przy zapisywaniu treningu"
 }

@@ -4,6 +4,8 @@
     "bmi": "BMI",
     "fat": "Fat",
     "muscle": "Muscle",
-    "date": "Date"
+    "date": "Date",
+    "wrong-form": "Not all inputs were filled",
+    "add-fail": "Body data cannot be added"
 }
   

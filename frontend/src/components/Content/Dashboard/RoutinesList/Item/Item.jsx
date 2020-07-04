@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { removeRoutine, createRoutineList, chooseActiveRoutine } from '@data/actions/routinesActions.js'
+import { useSnackbar } from 'notistack'
+import { useTranslation } from 'react-i18next'
+
 import Paper from '@material-ui/core/Paper'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
@@ -48,6 +51,17 @@ const Item = ({ routines, id, name, label, clickedItem, handleClickedItem }) => 
   const clicked = id === clickedItem
   const classes = useStyles({ clicked })
   const history = useHistory()
+  const { t } = useTranslation()
+  const { enqueueSnackbar } = useSnackbar()
+
+  const { removeError } = useSelector(state => state.routines)
+
+  useEffect(() => {
+    removeError &&
+    enqueueSnackbar(t('dashboard:remove-fail'), {
+      variant: 'error'
+    })
+  }, [removeError])
 
   const handleListClick = (e, id) => {
     e.stopPropagation()
