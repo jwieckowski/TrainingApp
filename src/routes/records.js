@@ -28,7 +28,7 @@ const postSchema = {
 }
 
 const records = async function (fastify, options, next) {
-  fastify.get('/', postSchema, async function (req, rep) {
+  fastify.get('/', async function (req, rep) {
     const routines = await this.db.getRecords(this.mongo.db)
     rep.code(200).send(routines)
   })
