@@ -34,6 +34,7 @@ const TrainingTable = ({ form, activeIndex }) => {
 
   const [trainingResults, setTrainingResults] = useState(undefined)
   const { date, activeExercises, trainingSeries, historyTrainings } = useSelector(state => state.training)
+  const { routineID } = useSelector(state => state.routines)
 
   useEffect(() => {
     dispatch(loadTrainings())
@@ -41,7 +42,7 @@ const TrainingTable = ({ form, activeIndex }) => {
 
   useEffect(() => {
     trainingResults === undefined
-      ? setTrainingResults(historyTrainings.filter((value, index) => index < 7))
+      ? setTrainingResults(historyTrainings.filter(training => parseInt(training.routine) === routineID).filter((value, index) => index < 7))
       : setTrainingResults(
         trainingResults.filter(training => training.date === date).length === 0
           ? [{ date, activeExercises, trainingSeries }, ...historyTrainings]
@@ -52,7 +53,7 @@ const TrainingTable = ({ form, activeIndex }) => {
             return training
           })].filter((value, index) => index < 7)
       )
-    activeExercises.length === 0 && setTrainingResults(historyTrainings.filter((value, index) => index < 7))
+    activeExercises.length === 0 && setTrainingResults(historyTrainings.filter(training => parseInt(training.routine) === routineID).filter((value, index) => index < 7))
   }, [trainingSeries, activeExercises, activeIndex])
 
   const createData = (date, training) => {

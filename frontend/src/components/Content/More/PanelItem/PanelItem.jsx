@@ -26,15 +26,19 @@ import SmthContent from './PanelContent/SmthContent'
 
 const useStyles = makeStyles((theme) => ({
   items: {
-    width: '100%'
+    width: '100%',
+    maxHeight: '70vh'
   },
   content: {
     width: '100%',
+    maxHeight: '100%',
     display: 'flex',
     alignItems: 'center'
   },
   exercisesList: {
-    width: '100%'
+    width: '100%',
+    maxHeight: '250px',
+    overflow: 'auto'
   }
 }))
 

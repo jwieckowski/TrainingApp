@@ -54,8 +54,8 @@ const TrainingForm = ({ handleClick, activeIndex }) => {
     activeExercises.indexOf(activeIndex) === -1
       ? setSeriesForm({
         ...seriesForm,
-        weight: getLastHistoricSeriesValue()[0] !== undefined && getLastHistoricSeriesValue()[0].trainingSeries[activeIndex][0][0],
-        reps: getLastHistoricSeriesValue()[0] !== undefined && getLastHistoricSeriesValue()[0].trainingSeries[activeIndex][0][1]
+        weight: getLastHistoricSeriesValue()[0] !== undefined && getLastHistoricSeriesValue()[0].trainingSeries[activeIndex] && getLastHistoricSeriesValue()[0].trainingSeries[activeIndex][0][0],
+        reps: getLastHistoricSeriesValue()[0] !== undefined && getLastHistoricSeriesValue()[0].trainingSeries[activeIndex] && getLastHistoricSeriesValue()[0].trainingSeries[activeIndex][0][1]
       })
       : setSeriesForm({
         ...seriesForm,

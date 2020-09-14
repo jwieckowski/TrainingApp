@@ -44,7 +44,7 @@ const HistoryContent = ({ trainingExercises, historyTraining, records }) => {
     if (currentRecords === undefined || currentRecords.length === 0) return
 
     const training = formatTraining(historyTraining.trainingSeries[historyTraining.activeExercises[index]])
-    return training.includes(formatRecord(currentRecords[0].max)) || training.includes(formatRecord(currentRecords[0].weight))
+    if (training) return training.includes(formatRecord(currentRecords[0].max)) || training.includes(formatRecord(currentRecords[0].weight))
   }
 
   return (
